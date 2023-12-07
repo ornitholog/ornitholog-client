@@ -1,0 +1,31 @@
+.NavBar {
+    display: flex;
+    justify-content: space-between;
+    background-color: black;
+    color: white;
+    padding: 24px 5vw;
+    align-items: center;
+    margin-bottom: 64px;
+    position: sticky;
+    top: 0;
+    z-index: 999;
+}
+
+.NavBar ul {
+    display: flex;
+}
+
+.NavBar .logo {
+    font-size: 20px;
+    font-weight: 800;
+    color: darkgrey
+}
+
+.NavBar ul > li {
+    list-style: none;
+    margin-left: 32px;
+}
+
+.NavBar ul > li > a {
+    color: white
+}
