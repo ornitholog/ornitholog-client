@@ -4,4 +4,4 @@ function SignUpPage() {
   return <div></div>;
 }
 
-export default Signup;
+export default SignUpPage;
