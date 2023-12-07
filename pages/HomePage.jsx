@@ -1,7 +1,12 @@
-import React from "react";
 
 function HomePage() {
-  return <div></div>;
+  return (
+    <>
+      <div className="container">
+        <h1>Homepage</h1>
+      </div>
+    </>
+  );
 }
 
 export default HomePage;

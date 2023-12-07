@@ -1,10 +1,19 @@
-import { useEffect, useState } from "react";
 import axios from "axios";
 import "./App.css";
 import { Route, Routes } from "react-router-dom";
+import { useEffect, useState } from "react";
+
+// Import Pages
 import HomePage from "../pages/HomePage";
 import SignUpPage from "../pages/SignUpPage";
 import SignInPage from "../pages/SignInPage";
+import ObservationDetailPage from "../pages/ObservationDetailPage";
+import EditObservationPage from "../pages/EditObservationPage";
+import ProfilePage from "../pages/ProfilePage";
+import BirdDetailPage from "../pages/BirdDetailsPage";
+import BirdIndexPage from "../pages/BirdIndexPage";
+
+// Import Components
 import NavBar from "../components/NavBar";
 
 function App() {
@@ -46,6 +55,11 @@ function App() {
         <Route path="/" element={<HomePage />}></Route>
         <Route path="/signup" element={<SignUpPage />}></Route>
         <Route path="/signin" element={<SignInPage />}></Route>
+        <Route path="/observations/:id" element={<ObservationDetailPage />}></Route>
+        <Route path="/profile/:id" element={<ProfilePage />}></Route>
+        <Route path="/birds/:id" element={<BirdDetailPage />}></Route>
+        <Route path="/observations/:id/edit" element={<EditObservationPage />}></Route>
+        <Route path="/birds" element={<BirdIndexPage />}></Route>
       </Routes>
     </>
   );
