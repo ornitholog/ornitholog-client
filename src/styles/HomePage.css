@@ -37,3 +37,29 @@
   top: 6rem;
   right: 0;
 }
+
+.card-container {
+  margin-top: 8rem;
+
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 2rem;
+}
+
+.observation-card {
+  background: rgb(230, 229, 229);
+  border: 1px solid black;
+  width: 15rem;
+  height: 20rem;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.observation-card img {
+  width: 10rem;
+  height: 10rem;
+  align-self: center;
+}
