@@ -5,6 +5,7 @@ import { Route, Routes } from "react-router-dom";
 import HomePage from "../pages/HomePage";
 import SignUpPage from "../pages/SignUpPage";
 import SignInPage from "../pages/SignInPage";
+import NavBar from "../components/NavBar";
 
 function App() {
   const url = import.meta.env.VITE_API_URL;
@@ -38,6 +39,9 @@ function App() {
 
   return (
     <>
+      
+      <NavBar />
+
       <Routes>
         <Route path="/" element={<HomePage />}></Route>
         <Route path="/signup" element={<SignUpPage />}></Route>
