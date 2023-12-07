@@ -13,8 +13,11 @@ function NavBar(){
                     <li>
                         <Link to="#">Profile</Link>
                     </li>
-                    <li className="favourites-item">
+                    <li>
                         <Link to="#">Birds</Link>
+                    </li>
+                    <li>
+                        <Link to="/signup">Sign up</Link>
                     </li>
                 </ul>
             </nav>
