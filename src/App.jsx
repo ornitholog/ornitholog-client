@@ -48,17 +48,27 @@ function App() {
 
   return (
     <>
-      
       <NavBar />
 
       <Routes>
-        <Route path="/" element={<HomePage />}></Route>
+        {observations && (
+          <Route
+            path="/"
+            element={<HomePage observationList={observations} />}
+          ></Route>
+        )}
         <Route path="/signup" element={<SignUpPage />}></Route>
         <Route path="/signin" element={<SignInPage />}></Route>
-        <Route path="/observations/:id" element={<ObservationDetailPage />}></Route>
+        <Route
+          path="/observations/:id"
+          element={<ObservationDetailPage />}
+        ></Route>
         <Route path="/profile/:id" element={<ProfilePage />}></Route>
         <Route path="/birds/:id" element={<BirdDetailPage />}></Route>
-        <Route path="/observations/:id/edit" element={<EditObservationPage />}></Route>
+        <Route
+          path="/observations/:id/edit"
+          element={<EditObservationPage />}
+        ></Route>
         <Route path="/birds" element={<BirdIndexPage />}></Route>
       </Routes>
     </>
