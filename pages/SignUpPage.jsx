@@ -5,7 +5,7 @@ import axios from "axios";
 
 function SignUpPage() {
   const url = import.meta.env.VITE_API_URL;
-  const [username, setUsername] = useState("");
+  const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [errorMessage, setErrorMessage] = useState(null);
@@ -14,16 +14,17 @@ function SignUpPage() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(username, email, password);
-  };
-  const requestBody = { username, email, password };
+    console.log(name, email, password);
 
-  axios
-    .post(`${url}/auth/signup`, requestBody)
-    .then(() => {
-      navigate("/login");
-    })
-    .catch((error) => setErrorMessage(error.response.data.message));
+    const requestBody = { name, email, password };
+
+    axios
+      .post(`${url}/auth/signup`, requestBody)
+      .then(() => {
+        navigate("/login");
+      })
+      .catch((error) => setErrorMessage(error.response.data.message));
+  };
 
   return (
     <>
@@ -35,8 +36,8 @@ function SignUpPage() {
             <input
               type="text"
               name="userName"
-              value={username}
-              onChange={(e) => setUsername(e.target.value)}
+              value={name}
+              onChange={(e) => setName(e.target.value)}
             />
 
             <label>E-mail:</label>
