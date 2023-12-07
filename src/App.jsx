@@ -39,9 +39,9 @@ function App() {
   return (
     <>
       <Routes>
-        <Route path="/" element={HomePage}></Route>
-        <Route path="/signup" element={SignUpPage}></Route>
-        <Route path="/signin" element={SignInPage}></Route>
+        <Route path="/" element={<HomePage />}></Route>
+        <Route path="/signup" element={<SignUpPage />}></Route>
+        <Route path="/signin" element={<SignInPage />}></Route>
       </Routes>
     </>
   );
