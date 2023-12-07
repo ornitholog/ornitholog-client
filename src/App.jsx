@@ -23,7 +23,7 @@ function App() {
 
   const fetchObservations = () => {
     axios
-      .get(`${url}/observations`)
+      .get(`${url}/api/observations`)
       .then((response) => {
         setObservations(response);
       })
@@ -32,7 +32,7 @@ function App() {
 
   const fetchBirds = () => {
     axios
-      .get(`${url}/birds`)
+      .get(`${url}/api/birds`)
       .then((response) => {
         setBirds(response);
       })
