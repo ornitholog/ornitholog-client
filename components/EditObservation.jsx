@@ -1,7 +1,5 @@
 import { useState } from "react";
-import axios from "axios";
-
-function NewObservation() {
+function EditObservation({ observationDetails }) {
   const url = import.meta.env.VITE_API_URL;
 
   const [date, setDate] = useState(new Date());
@@ -174,4 +172,4 @@ function NewObservation() {
   );
 }
 
-export default NewObservation;
+export default EditObservation;
