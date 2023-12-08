@@ -6,7 +6,7 @@ import { useEffect, useState } from "react";
 // Import Pages
 import HomePage from "../pages/HomePage";
 import SignUpPage from "../pages/SignUpPage";
-import SignInPage from "../pages/SignInPage";
+import LogInPage from "../pages/LogInPage";
 import ObservationDetailPage from "../pages/ObservationDetailPage";
 import EditObservationPage from "../pages/EditObservationPage";
 import ProfilePage from "../pages/ProfilePage";
@@ -58,10 +58,15 @@ function App() {
           ></Route>
         )}
         <Route path="/signup" element={<SignUpPage />}></Route>
-        <Route path="/signin" element={<SignInPage />}></Route>
-
+        <Route path="/login" element={<LoginInPage />}></Route>
         <Route path="/observations/:id" element={<ObservationDetailPage observationList={observations} />}></Route>
 
+        {observations && (
+          <Route
+            path="/observations/:id"
+            element={<ObservationDetailPage observationList={observations} />}
+          ></Route>
+        )}
         <Route path="/profile/:id" element={<ProfilePage />}></Route>
         <Route path="/birds/:id" element={<BirdDetailPage />}></Route>
         <Route
