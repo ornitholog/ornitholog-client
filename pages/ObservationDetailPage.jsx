@@ -34,23 +34,21 @@ function ObservationDetailPage() {
         {observation === null ? (
           <h3>loading...</h3>
         ) : (
-          <>
-            <div className="observation-detail flex-hor">
-              <div>
-                <h1>{observation.birdId.name}</h1>
-                <div>{observation.birdId.sciName}</div>
-                <div>{observation.habitat}</div>
-                <div>{observation.vegetation}</div>
-                <div>{observation.temperature}°C</div>
-                <div>{observation.date.slice(0, 10)}</div>
-              </div>
-              <div className="img-wrap">
-                <img src={observation.photo} alt="" />
-              </div>
+          <div className="observation-detail flex-hor">
+            <div>
+              <h1>{observation.birdId.name}</h1>
+              <div>{observation.birdId.sciName}</div>
+              <div>{observation.habitat}</div>
+              <div>{observation.vegetation}</div>
+              <div>{observation.temperature}°C</div>
+              <div>{observation.date.slice(0, 10)}</div>
+            </div>
+            <div className="img-wrap">
+              <img src={observation.photo} alt="" />
             </div>
             <button>Edit</button>
             <EditObservation observationDetails={observation} />
-          </>
+          </div>
         )}
       </div>
     </>
