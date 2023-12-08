@@ -4,6 +4,7 @@ import NewObservation from "./NewObservation";
 import { useState } from "react";
 
 function NavBar() {
+  const [toggle, setToggle] = useState(false);
   return (
     <>
       <nav className="NavBar">
