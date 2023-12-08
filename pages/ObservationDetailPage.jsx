@@ -23,12 +23,7 @@ function ObservationDetailPage(){
 
         useEffect(() => {
             getObservation();
-        }, []);
-
-        useEffect(() => {
-            console.log(observation)
-        }, [observation])
-    
+        }, []);    
 
     return(
         <>

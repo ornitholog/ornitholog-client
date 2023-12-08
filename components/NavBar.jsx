@@ -1,9 +1,11 @@
 import { Link } from "react-router-dom"
 import "../src/styles/NavBar.css"
-
 import NewObservation from "./NewObservation";
+import { useState } from "react";
 
 function NavBar() {
+
+    const [toggle, setToggle] = useState(false)
 
     return (
         <>
@@ -22,10 +24,16 @@ function NavBar() {
                     <li>
                         <Link to="/signup">Sign up</Link>
                     </li>
+                    <button onClick={() => setToggle(!toggle)} className="btn">
+                        Create observation
+                    </button>
                 </ul>
+                
             </nav>
 
-            <NewObservation />
+            {toggle && (
+                <NewObservation />
+            )}
 
         </>
     )
