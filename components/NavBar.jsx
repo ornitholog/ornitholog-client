@@ -3,7 +3,7 @@ import "../src/styles/NavBar.css";
 import NewObservation from "./NewObservation";
 import { useState } from "react";
 
-function NavBar() {
+function NavBar({ birdList }) {
   const [toggle, setToggle] = useState(false);
   return (
     <>
@@ -30,7 +30,7 @@ function NavBar() {
         </ul>
       </nav>
 
-      {toggle && <NewObservation />}
+      {toggle && <NewObservation birdList={birdList} />}
     </>
   );
 }

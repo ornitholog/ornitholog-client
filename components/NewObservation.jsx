@@ -1,9 +1,10 @@
 import { useState } from "react";
 import axios from "axios";
 
-function NewObservation() {
+function NewObservation({ birdList }) {
   const url = import.meta.env.VITE_API_URL;
 
+  const [bird, setBird] = useState("");
   const [date, setDate] = useState(new Date());
   const [title, setTitle] = useState("");
   const [latitude, setLatitude] = useState(0);
@@ -15,11 +16,17 @@ function NewObservation() {
   const [sound, setSound] = useState("");
   const [temperature, setTemperature] = useState(0);
   const [notes, setNotes] = useState("");
+  const [suggestions, setSuggestions] = useState([]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
+    const addedBird = birdList.find((elm) => {
+      return elm.name === bird;
+    });
+
     const requestBody = {
+      birdId: addedBird._id,
       date,
       title,
       location: {
@@ -32,6 +39,7 @@ function NewObservation() {
       photo,
       sound,
       temperature,
+      notes,
     };
 
     // Get the token from the localStorage
@@ -59,6 +67,26 @@ function NewObservation() {
       .catch((error) => console.log(error));
   };
 
+  const birdListArray = birdList.map((bird) => {
+    return bird.name;
+  });
+
+  const handleInputChange = (e) => {
+    const value = e.target.value;
+    setBird(value);
+
+    const filteredSuggestions = birdListArray.filter((suggestion) =>
+      suggestion.toLowerCase().includes(value.toLowerCase())
+    );
+
+    setSuggestions(filteredSuggestions);
+  };
+
+  const handleSuggestionClick = (suggestion) => {
+    setBird(suggestion);
+    setSuggestions([]);
+  };
+
   return (
     <>
       <div className="createObservation container">
@@ -74,11 +102,27 @@ function NewObservation() {
               onChange={(e) => setTitle(e.target.value)}
             />
           </label>
-          <input
-            type="file"
-            accept="image/*"
-            onChange={(e) => setPhoto(e.target.value)}
-          />
+          <label>
+            <input
+              type="file"
+              accept="image/*"
+              onChange={(e) => setPhoto(e.target.value)}
+            />
+          </label>
+          <label>
+            Observed Bird:
+            <input type="text" value={bird} onChange={handleInputChange} />
+            <ul>
+              {suggestions.map((suggestion, index) => (
+                <li
+                  key={index}
+                  onClick={() => handleSuggestionClick(suggestion)}
+                >
+                  {suggestion}
+                </li>
+              ))}
+            </ul>
+          </label>
           <label>
             Date:
             <input

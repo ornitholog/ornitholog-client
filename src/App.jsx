@@ -48,7 +48,7 @@ function App() {
 
   return (
     <>
-      <NavBar />
+      <NavBar birdList={birds} />
 
       <Routes>
         <Route
