@@ -2,6 +2,7 @@ import React from "react";
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
+import "../src/styles/Auth.css";
 
 function SignUpPage() {
   const url = import.meta.env.VITE_API_URL;
@@ -28,9 +29,9 @@ function SignUpPage() {
 
   return (
     <>
-      <div className="container">
-        <h1>Sign up</h1>
-        <div className="signUp-container">
+      <div className="SignUpPage">
+        <div className="auth-container">
+          <h1>Register</h1>
           <form onSubmit={handleSubmit}>
             <label>Username:</label>
             <input
@@ -61,12 +62,16 @@ function SignUpPage() {
               name="profileImg"
               accept="image/png, image/jpeg"
             />
-            <button type="submit">Sign Up</button>
+            <button className="submit-btn" type="submit">
+              Sign Up
+            </button>
           </form>
-
-          <p>Already have account?</p>
-          <Link to={"/login"}> Login</Link>
+          <div className="something">
+            <p>Already have account?</p>
+            <Link to={"/login"}> Login</Link>
+          </div>
         </div>
+
         {errorMessage && <p>{errorMessage}</p>}
       </div>
     </>
