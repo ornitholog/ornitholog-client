@@ -35,9 +35,7 @@ function HomePage({ observationList }) {
                   <h2>{observation.birdId.sciName}</h2>
                   <p>Location Name</p>
                   <p>{observation.date}</p>
-                  <Link>
-                    <button>More Info</button>
-                  </Link>
+                  <Link to={`/observations/${observation._id}`}>More Info</Link>
                 </div>
               );
             })}
