@@ -2,3 +2,8 @@
     padding: 0 5vw;
   }
   
+.flex-hor {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}

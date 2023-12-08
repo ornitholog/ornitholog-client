@@ -59,12 +59,9 @@ function App() {
         )}
         <Route path="/signup" element={<SignUpPage />}></Route>
         <Route path="/signin" element={<SignInPage />}></Route>
-        { observations && (
-        <Route
-          path="/observations/:id"
-          element={<ObservationDetailPage observationList={observations} />}
-        ></Route>
-        )}
+
+        <Route path="/observations/:id" element={<ObservationDetailPage observationList={observations} />}></Route>
+
         <Route path="/profile/:id" element={<ProfilePage />}></Route>
         <Route path="/birds/:id" element={<BirdDetailPage />}></Route>
         <Route
