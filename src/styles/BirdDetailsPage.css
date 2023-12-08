@@ -1,0 +1,19 @@
+.bird-details-container {
+  height: 70vh;
+  width: 70vw;
+  background: rgb(170, 168, 168);
+  margin: 0 auto;
+  padding: 2rem;
+  display: flex;
+  justify-content: space-between;
+}
+
+.bird-img {
+  width: 25rem;
+  height: 20rem;
+}
+
+.bird-details p {
+  margin-bottom: 1rem;
+  line-height: 1.5;
+}
