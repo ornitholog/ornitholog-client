@@ -25,7 +25,7 @@ function App() {
     axios
       .get(`${url}/api/observations`)
       .then((response) => {
-        setObservations(response);
+        setObservations(response.data);
       })
       .catch((error) => {});
   };
@@ -34,7 +34,7 @@ function App() {
     axios
       .get(`${url}/api/birds`)
       .then((response) => {
-        setBirds(response);
+        setBirds(response.data);
       })
       .catch((error) => {
         console.log(error);
@@ -51,14 +51,9 @@ function App() {
       <NavBar />
 
       <Routes>
-        {observations && (
-          <Route
-            path="/"
-            element={<HomePage observationList={observations} />}
-          ></Route>
-        )}
+        <Route path="/" element={<HomePage observationList={observations} />} ></Route>
         <Route path="/signup" element={<SignUpPage />}></Route>
-        <Route path="/login" element={<LoginInPage />}></Route>
+        <Route path="/login" element={<LogInPage />}></Route>
         <Route path="/observations/:id" element={<ObservationDetailPage observationList={observations} />}></Route>
 
         {observations && (

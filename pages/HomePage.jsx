@@ -3,7 +3,6 @@ import "../src/styles/HomePage.css";
 import { Link } from "react-router-dom";
 
 function HomePage({ observationList }) {
-  console.log(observationList.data);
   return (
     <div className="HomePage">
       <div className="hero">
@@ -28,20 +27,18 @@ function HomePage({ observationList }) {
         <button className="filter-btn">Filters</button>
         <div className="card-container">
           {observationList &&
-            observationList.data.map((observation) => {
+            observationList.map((observation, index) => {
               return (
-                <>
-                  <div className="observation-card">
-                    <img src={observation.photo}></img>
-                    <h1>{observation.birdId.name}</h1>
-                    <h2>{observation.birdId.sciName}</h2>
-                    <p>Location Name</p>
-                    <p>{observation.date}</p>
-                    <Link>
-                      <button>More Info</button>
-                    </Link>
-                  </div>
-                </>
+                <div key={observation._id} className="observation-card">
+                  <img src={observation.photo}></img>
+                  <h1>{observation.birdId.name}</h1>
+                  <h2>{observation.birdId.sciName}</h2>
+                  <p>Location Name</p>
+                  <p>{observation.date}</p>
+                  <Link>
+                    <button>More Info</button>
+                  </Link>
+                </div>
               );
             })}
         </div>
