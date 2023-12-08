@@ -54,7 +54,7 @@ function App() {
         <Route path="/" element={<HomePage observationList={observations} />} ></Route>
         <Route path="/signup" element={<SignUpPage />}></Route>
         <Route path="/login" element={<LogInPage />}></Route>
-        <Route path="/observations/:id" element={<ObservationDetailPage observationList={observations} />}></Route>
+        <Route path="/observations/:id" element={<ObservationDetailPage />}></Route>
         <Route path="/profile/:id" element={<ProfilePage />}></Route>
         <Route path="/birds/:id" element={<BirdDetailPage />}></Route>
         <Route

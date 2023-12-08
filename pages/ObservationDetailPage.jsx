@@ -17,17 +17,13 @@ function ObservationDetailPage(){
                 setObservation(response.data)
             })
             .catch((error) => {
-                console.log
+                console.log(error)
             })
         }
 
         useEffect(() => {
             getObservation();
         }, []);
-
-        // useEffect(() => {
-        //     console.log(observation)
-        // }, [observation])
     
 
     return(
