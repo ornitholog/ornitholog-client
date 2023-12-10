@@ -1,6 +1,9 @@
 import React from "react";
 import "../src/styles/HomePage.css";
 import { Link } from "react-router-dom";
+import Map from "../components/Map";
+
+// import FilterObservations from "../components/FilterObservations";
 
 function HomePage({ observationList }) {
   return (
@@ -25,6 +28,7 @@ function HomePage({ observationList }) {
           sadipscing elitr, sed diam nonumy eirmod tempor invidunt
         </p>
         <button className="filter-btn">Filters</button>
+        {/* <FilterObservations observationList={observationList} /> */}
         <div className="card-container">
           {observationList &&
             observationList.map((observation, index) => {
@@ -40,6 +44,7 @@ function HomePage({ observationList }) {
               );
             })}
         </div>
+        <Map observationList={observationList} />
       </div>
     </div>
   );

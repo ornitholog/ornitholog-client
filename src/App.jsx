@@ -30,6 +30,10 @@ function App() {
       .catch((error) => {});
   };
 
+  // const fetchFilteredObservation = (birdName, habitat) = {
+
+  // }
+
   const fetchBirds = () => {
     axios
       .get(`${url}/api/birds`)
@@ -53,8 +57,14 @@ function App() {
       <Routes>
         <Route
           path="/"
-          element={<HomePage observationList={observations} />}
+          element={<HomePage observationList={observations} birdList={birds} />}
         ></Route>
+        {/* <Route
+          path="/"
+          element={
+            <HomePage observationList={observations} birdList={birdList} fetchFilteredObservation={fetchFilteredObservation}/>
+          }
+        ></Route> */}
         <Route path="/signup" element={<SignUpPage />}></Route>
         <Route path="/login" element={<LogInPage />}></Route>
         <Route
