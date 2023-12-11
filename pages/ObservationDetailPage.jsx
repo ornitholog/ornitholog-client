@@ -8,8 +8,11 @@ import { useContext } from "react";
 import { AuthContext } from "../context/auth.context";
 
 function ObservationDetailPage({ birdList, fetchObservationList }) {
-  // const something = useContext(AuthContext);
-  // console.log(something);
+  const { user } = useContext(AuthContext);
+  if (user) {
+    console.log(user._id);
+  }
+
   const url = import.meta.env.VITE_API_URL;
   const { id } = useParams();
   const [observation, setObservation] = useState(null);
@@ -30,9 +33,7 @@ function ObservationDetailPage({ birdList, fetchObservationList }) {
     getObservation();
   }, []);
 
-  useEffect(() => {
-    console.log(observation);
-  }, [observation]);
+  useEffect(() => {}, [observation]);
 
   return (
     <>
@@ -55,18 +56,24 @@ function ObservationDetailPage({ birdList, fetchObservationList }) {
               <img src={observation.photo} alt="" />
             </div>
 
-            <button onClick={() => setToggle(!toggle)} className="btn">
-              Edit
-            </button>
-            {toggle && (
-              <EditObservation
-                observationDetails={observation}
-                getObservation={getObservation}
-                fetchObservationList={fetchObservationList}
-                birdList={birdList}
-              />
+            {user && user._id === observation.creator && (
+              <>
+                <button onClick={() => setToggle(!toggle)} className="btn">
+                  Edit
+                </button>
+                {toggle && (
+                  <EditObservation
+                    observationDetails={observation}
+                    getObservation={getObservation}
+                    fetchObservationList={fetchObservationList}
+                    birdList={birdList}
+                  />
+                )}
+                <DeleteObservation
+                  fetchObservationList={fetchObservationList}
+                />
+              </>
             )}
-            <DeleteObservation fetchObservationList={fetchObservationList} />
           </div>
         )}
       </div>
