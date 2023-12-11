@@ -29,17 +29,17 @@ function NavBar({ birdList }) {
               <Link to="/signup">Sign up</Link>
             </li>
           </IsAnon>
-          <IsPrivate>
+          {/* <IsPrivate>
             <button onClick={() => setToggle(!toggle)} className="btn">
               Create observation
             </button>
-          </IsPrivate>
+          </IsPrivate> */}
         </ul>
       </nav>
 
-      <IsPrivate>
+      {/* <IsPrivate>
         {toggle && <NewObservation birdList={birdList} />}
-      </IsPrivate>
+      </IsPrivate> */}
     </>
   );
 }
