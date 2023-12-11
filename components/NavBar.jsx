@@ -1,11 +1,11 @@
 import { Link } from "react-router-dom";
 import NewObservation from "./NewObservation";
 import { useState } from "react";
-
 import { useContext } from "react";
 import { AuthContext } from "../context/auth.context";
 import IsPrivate from "../components/IsPrivate/IsPrivate";
 import IsAnon from "../components/IsAnon/IsAnon";
+import "../src/styles/NavBar.scss"
 
 function NavBar({ birdList }) {
   const { isLoggedIn, user, logOutUser } = useContext(AuthContext);

@@ -1,11 +1,11 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
-import "../src/styles/ObservationDetailPage.scss";
 import EditObservation from "../components/EditObservation";
 import DeleteObservation from "../components/DeleteObservation";
 import { useContext } from "react";
 import { AuthContext } from "../context/auth.context";
+import "../src/styles/BirdDetailsPage.scss"
 
 function ObservationDetailPage({ birdList, fetchObservationList }) {
   const { user } = useContext(AuthContext);
