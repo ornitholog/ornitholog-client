@@ -4,7 +4,12 @@ import { Link, useParams } from "react-router-dom";
 import "../src/styles/ObservationDetailPage.css";
 import EditObservation from "../components/EditObservation";
 import DeleteObservation from "../components/DeleteObservation";
+import { useContext } from "react";
+import { AuthContext } from "../context/auth.context";
+
 function ObservationDetailPage({ birdList, fetchObservationList }) {
+  // const something = useContext(AuthContext);
+  // console.log(something);
   const url = import.meta.env.VITE_API_URL;
   const { id } = useParams();
   const [observation, setObservation] = useState(null);
