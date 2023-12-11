@@ -3,6 +3,9 @@ import "../src/styles/NavBar.css";
 import NewObservation from "./NewObservation";
 import { useState } from "react";
 
+import IsPrivate from "../components/IsPrivate/IsPrivate";
+import IsAnon from "../components/IsAnon/IsAnon";
+
 function NavBar({ birdList }) {
   const [toggle, setToggle] = useState(false);
   return (
@@ -21,16 +24,22 @@ function NavBar({ birdList }) {
           <li>
             <Link to="#">Birds</Link>
           </li>
-          <li>
-            <Link to="/signup">Sign up</Link>
-          </li>
-          <button onClick={() => setToggle(!toggle)} className="btn">
-            Create observation
-          </button>
+          <IsAnon>
+            <li>
+              <Link to="/signup">Sign up</Link>
+            </li>
+          </IsAnon>
+          <IsPrivate>
+            <button onClick={() => setToggle(!toggle)} className="btn">
+              Create observation
+            </button>
+          </IsPrivate>
         </ul>
       </nav>
 
-      {toggle && <NewObservation birdList={birdList} />}
+      <IsPrivate>
+        {toggle && <NewObservation birdList={birdList} />}
+      </IsPrivate>
     </>
   );
 }
