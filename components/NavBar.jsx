@@ -33,7 +33,7 @@ function NavBar({ birdList }) {
           </li>
           <IsAnon>
             <li>
-              <Link to="/signup">Sign up</Link>
+              <Link to="/login">Login</Link>
             </li>
           </IsAnon>
           { isLoggedIn && (

@@ -3,6 +3,7 @@ import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../context/auth.context";
 
+
 function LogInPage() {
   const url = import.meta.env.VITE_API_URL;
   const [email, setEmail] = useState("");
@@ -35,6 +36,10 @@ function LogInPage() {
     <>
       <div className="LogInPage">
         <div className="auth-container">
+          <div>
+              <h3>You don't have an account? Please</h3>  
+              <Link to="/signup">sign up here</Link>
+          </div>
           <h1>Log In</h1>
           <form onSubmit={handleSubmit}>
             <label>E-mail:</label>
