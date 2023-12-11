@@ -1,23 +1,44 @@
 import { useState } from "react";
-function EditObservation({ observationDetails }) {
+import axios from "axios";
+
+function EditObservation({
+  observationDetails,
+  getObservation,
+  birdList,
+  fetchObservationList,
+}) {
+  console.log(observationDetails);
   const url = import.meta.env.VITE_API_URL;
 
-  const [date, setDate] = useState(new Date());
-  const [title, setTitle] = useState("");
-  const [latitude, setLatitude] = useState(0);
-  const [longitude, setLongitude] = useState(0);
-  const [habitat, setHabitat] = useState("forest");
-  const [vegetation, setVegetation] = useState("");
-  const [age, setAge] = useState("juvenil");
-  const [photo, setPhoto] = useState("");
+  const [bird, setBird] = useState(observationDetails.birdId.name);
+  const [date, setDate] = useState(observationDetails.date);
+  const [title, setTitle] = useState(observationDetails.title);
+  const [latitude, setLatitude] = useState(
+    observationDetails.location.coordinates[0]
+  );
+  const [longitude, setLongitude] = useState(
+    observationDetails.location.coordinates[1]
+  );
+  const [habitat, setHabitat] = useState(observationDetails.habitat);
+  const [vegetation, setVegetation] = useState(observationDetails.vegetation);
+  const [age, setAge] = useState(observationDetails.age);
+  const [photo, setPhoto] = useState(observationDetails.photo);
   const [sound, setSound] = useState("");
-  const [temperature, setTemperature] = useState(0);
-  const [notes, setNotes] = useState("");
+  const [temperature, setTemperature] = useState(
+    observationDetails.temperature
+  );
+  const [notes, setNotes] = useState(observationDetails.notes);
+  const [suggestions, setSuggestions] = useState([]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
+    const addedBird = birdList.find((elm) => {
+      return elm.name === bird;
+    });
+
     const requestBody = {
+      bird: addedBird._id,
       date,
       title,
       location: {
@@ -37,30 +58,39 @@ function EditObservation({ observationDetails }) {
 
     // Send the token through the request "Authorization" Headers
     axios
-      .post(`${url}/api/observations/`, requestBody, {
+      .put(`${url}/api/observations/${observationDetails._id}`, requestBody, {
         headers: { Authorization: `Bearer ${storedToken}` },
       })
       .then((response) => {
-        // Reset the state
-        setTitle("");
-        setDate(new Date());
-        setLatitude(0);
-        setLongitude(0);
-        setHabitat("");
-        setVegetation("");
-        setAge("");
-        setPhoto("");
-        setSound("");
-        setTemperature(0);
-        setNotes("");
+        getObservation();
+        fetchObservationList();
       })
       .catch((error) => console.log(error));
+  };
+  const birdListArray = birdList.map((bird) => {
+    return bird.name;
+  });
+
+  const handleInputChange = (e) => {
+    const value = e.target.value;
+    setBird(value);
+
+    const filteredSuggestions = birdListArray.filter((suggestion) =>
+      suggestion.toLowerCase().includes(value.toLowerCase())
+    );
+
+    setSuggestions(filteredSuggestions);
+  };
+
+  const handleSuggestionClick = (suggestion) => {
+    setBird(suggestion);
+    setSuggestions([]);
   };
 
   return (
     <>
       <div className="createObservation container">
-        <h2>Add your bird observation</h2>
+        <h2>Edit observation</h2>
 
         <form onSubmit={handleSubmit}>
           <label>
@@ -71,6 +101,20 @@ function EditObservation({ observationDetails }) {
               value={title}
               onChange={(e) => setTitle(e.target.value)}
             />
+          </label>
+          <label>
+            Observed Bird:
+            <input type="text" value={bird} onChange={handleInputChange} />
+            <ul>
+              {suggestions.map((suggestion, index) => (
+                <li
+                  key={index}
+                  onClick={() => handleSuggestionClick(suggestion)}
+                >
+                  {suggestion}
+                </li>
+              ))}
+            </ul>
           </label>
           <input
             type="file"
