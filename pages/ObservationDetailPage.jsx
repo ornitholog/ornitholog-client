@@ -3,6 +3,8 @@ import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import "../src/styles/ObservationDetailPage.css";
 import EditObservation from "../components/EditObservation";
+import ExampleFilterComponent from "../components/FilterTest";
+
 
 function ObservationDetailPage() {
   const url = import.meta.env.VITE_API_URL;
@@ -30,6 +32,8 @@ function ObservationDetailPage() {
 
   return (
     <>
+
+<ExampleFilterComponent />
       <div className="container">
         {observation === null ? (
           <h3>loading...</h3>
