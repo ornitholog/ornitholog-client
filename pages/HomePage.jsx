@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import "../src/styles/HomePage.css";
 import { Link } from "react-router-dom";
 import Map from "../components/Map";
@@ -6,6 +6,9 @@ import Map from "../components/Map";
 import FilterObservations from "../components/FilterObservations";
 
 function HomePage({ observationList }) {
+
+  const [displayedObservations, setDisplayedObservations] = useState(observationList)
+
   return (
     <div className="HomePage">
       <div className="hero">
@@ -29,11 +32,13 @@ function HomePage({ observationList }) {
         </p>
         <button className="filter-btn">Filters</button>
 
-        <FilterObservations observationList={observationList} />
+        <FilterObservations
+          observationList={observationList}
+          setDisplayedObservations={setDisplayedObservations} />
 
         <div className="card-container">
-          {observationList &&
-            observationList.map((observation, index) => {
+          {displayedObservations &&
+            displayedObservations.map((observation, index) => {
               return (
                 <div key={observation._id} className="observation-card">
                   <img src={observation.photo}></img>
