@@ -1,7 +1,9 @@
+@import "./variables";
+
 .NavBar {
     display: flex;
     justify-content: space-between;
-    background-color: black;
+    background-color: $dark;
     color: white;
     padding: 24px 5vw;
     align-items: center;
@@ -9,6 +11,12 @@
     position: sticky;
     top: 0;
     z-index: 999;
+    button {
+        background-color: $primary;
+        color: $white;
+        padding: 8px;
+        border: 0;
+    }
 }
 
 .NavBar ul {

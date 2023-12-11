@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "../src/styles/HomePage.css";
+import "../src/styles/HomePage.scss";
 import { Link } from "react-router-dom";
 import Map from "../components/Map";
 

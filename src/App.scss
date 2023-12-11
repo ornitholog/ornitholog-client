@@ -1,0 +1,30 @@
+@import "./styles/variables";
+
+body {
+    background-color: $dark;
+    color: $white-500;
+}
+
+  .leaflet-container {
+    height: 50vh;
+  }
+  
+
+.container {
+    padding: 0 5vw;
+  }
+  
+.flex-hor {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+form {
+  margin-bottom: 64px;
+}
+
+form label, form input, form select {
+  margin-bottom: 16px;
+  display: block;
+}

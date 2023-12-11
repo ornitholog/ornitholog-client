@@ -1,6 +1,5 @@
 import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
-import "../src/styles/BirdDetailsPage.css";
 
 function BirdDetailPage({ birdList }) {
   const { id } = useParams();

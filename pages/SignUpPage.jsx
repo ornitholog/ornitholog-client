@@ -2,7 +2,7 @@ import React from "react";
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
-import "../src/styles/Auth.css";
+import "../src/styles/Auth.scss";
 
 function SignUpPage() {
   const url = import.meta.env.VITE_API_URL;

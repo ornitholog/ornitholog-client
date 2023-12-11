@@ -1,5 +1,4 @@
 import { Link } from "react-router-dom";
-import "../src/styles/NavBar.css";
 import NewObservation from "./NewObservation";
 import { useState } from "react";
 
