@@ -4,7 +4,6 @@ import { Link, useParams } from "react-router-dom";
 import "../src/styles/ObservationDetailPage.css";
 import EditObservation from "../components/EditObservation";
 import ExampleFilterComponent from "../components/FilterTest";
-import DeleteObservation from "../components/DeleteObservation";
 
 function ObservationDetailPage({ birdList, fetchObservationList }) {
   const url = import.meta.env.VITE_API_URL;
