@@ -3,10 +3,17 @@ import "../src/styles/NavBar.css";
 import NewObservation from "./NewObservation";
 import { useState } from "react";
 
+
+import { useContext } from "react";
+import { AuthContext } from "../context/auth.context";
 import IsPrivate from "../components/IsPrivate/IsPrivate";
 import IsAnon from "../components/IsAnon/IsAnon";
 
+
+
 function NavBar({ birdList }) {
+
+  const { isLoggedIn, user, logOutUser } = useContext(AuthContext);
   const [toggle, setToggle] = useState(false);
   return (
     <>
@@ -29,17 +36,17 @@ function NavBar({ birdList }) {
               <Link to="/signup">Sign up</Link>
             </li>
           </IsAnon>
-          <IsPrivate>
+          { isLoggedIn && (
             <button onClick={() => setToggle(!toggle)} className="btn">
               Create observation
             </button>
-          </IsPrivate>
+          )}
         </ul>
       </nav>
 
-      <IsPrivate>
-        {toggle && <NewObservation birdList={birdList} />}
-      </IsPrivate>
+
+        {toggle && isLoggedIn && <NewObservation birdList={birdList} />}
+
     </>
   );
 }
