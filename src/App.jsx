@@ -8,7 +8,7 @@ import HomePage from "../pages/HomePage";
 import SignUpPage from "../pages/SignUpPage";
 import LogInPage from "../pages/LogInPage";
 import ObservationDetailPage from "../pages/ObservationDetailPage";
-import EditObservationPage from "../pages/EditObservationPage";
+
 import ProfilePage from "../pages/ProfilePage";
 import BirdDetailPage from "../pages/BirdDetailsPage";
 import BirdIndexPage from "../pages/BirdIndexPage";
@@ -69,17 +69,19 @@ function App() {
         <Route path="/login" element={<LogInPage />}></Route>
         <Route
           path="/observations/:id"
-          element={<ObservationDetailPage />}
+          element={
+            <ObservationDetailPage
+              birdList={birds}
+              fetchObservationList={fetchObservations}
+            />
+          }
         ></Route>
         <Route path="/profile/:id" element={<ProfilePage />}></Route>
         <Route
           path="/birds/:id"
           element={<BirdDetailPage birdList={birds} />}
         ></Route>
-        <Route
-          path="/observations/:id/edit"
-          element={<EditObservationPage />}
-        ></Route>
+
         <Route path="/birds" element={<BirdIndexPage />}></Route>
       </Routes>
     </>
