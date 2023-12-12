@@ -1,6 +1,6 @@
 import axios from "axios";
-import "./App.scss";
 import "./styles/css-reset.scss";
+import "./App.scss";
 import { Route, Routes } from "react-router-dom";
 import { useEffect, useState } from "react";
 

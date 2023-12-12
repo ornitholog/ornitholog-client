@@ -14,7 +14,7 @@ function NavBar({ birdList }) {
     <>
       <nav className="NavBar">
         <Link className="logo" to="/">
-          OrnithoLog
+          <img src="./ornitholog-logo-white.svg" alt="logo" />
         </Link>
         <ul>
           <li>

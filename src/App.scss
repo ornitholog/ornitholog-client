@@ -1,29 +1,104 @@
 @import "./styles/variables";
 
-body {
-    background-color: $dark;
-    color: $white-500;
+*, div, h1, h2, h3, h4, p {
+    font-family: 'Poppins', sans-serif;
 }
 
-  .leaflet-container {
-    height: 50vh;
+:root {
+  box-sizing: border-box;
+}
+
+
+body {
+  background-color: $dark;
+  color: $white-500;
+}
+
+input, select, textarea {
+  border-radius: 2px;
+}
+
+h1, .main-title {
+  font-size: 4rem;
+}
+
+h2 {
+  font-size: 2.75rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+h3 {
+  font-size: 2rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+h4 {
+  font-size: 1.5rem;
+  font-weight: 500;
+}
+
+h5 {
+  font-size: 1.25rem;
+  font-weight: 400;
+}
+
+h6 {
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+p {
+  font-size: 1.25rem;
+  line-height: 1.5;
+  font-weight: 200;
+  max-width: 600px;
+}
+
+.btn {
+  cursor: pointer;
+  background-color: $primary;
+  color: $white;
+  padding: 8px 16px;
+  border: 0;
+  border-radius: 2px;
+  font-size: 16px;
+  font-weight: 500;
+  &:hover {
+    background-color: darken($primary, 5%);
   }
-  
+}
+
+.btn-light {
+  background-color: $white;
+  color: $dark;
+  &:hover {
+    background-color: $white-300;
+  }
+}
 
 .container {
-    padding: 0 5vw;
-  }
-  
-.flex-hor {
+  padding: 0 5vw;
+}
+
+.center {
+  text-align: center;
+  margin: 0 auto;
+}
+
+.flex-horizontal {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
 }
 
 form {
   margin-bottom: 64px;
 }
 
+.leaflet-container {
+height: 50vh;
+} 
 form label, form input, form select {
   margin-bottom: 16px;
   display: block;

@@ -13,25 +13,18 @@ function HomePage({ observationList }) {
     <div className="HomePage">
       <div className="hero">
         <div className="hero-box">
-          <h1>Header</h1>
-          <p>
-            Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
-            nonumy eirmod tempor
-          </p>
-          <button>Click here</button>
+          <h1>OrnithoLog</h1>
+          <p>Contribute to Avian Conservation: OrnithoLog – Your Platform for Tracking and Reporting Bird Species Observations</p>
+          <button className="btn btn-light">Join the community</button>
         </div>
       </div>
       <div className="homepage-container">
-        <p>
-          Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
-          nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat,
-          sed diam voluptua. At vero eos et accusam et justo duo dolores et ea
-          rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem
-          ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur
-          sadipscing elitr, sed diam nonumy eirmod tempor invidunt
-        </p>
-        <button className="filter-btn">Filters</button>
+        <div className="flex-horizontal">
+          <h3>Bird Observation Contributions</h3>
+          <p>Share valuable insights into avian ecosystems by uploading bird observations, including geo-location, temperature, habitat, and vegetation data. Your contributions can help in monitoring key bird species, providing insights into the health and status of ecosystems</p>
+        </div>
 
+        <h2 className="center">Birds observations</h2>
         <FilterObservations
           observationList={observationList}
           setDisplayedObservations={setDisplayedObservations} />
@@ -42,10 +35,10 @@ function HomePage({ observationList }) {
               return (
                 <div key={observation._id} className="observation-card">
                   <img src={observation.photo}></img>
-                  <h1>{observation.birdId.name}</h1>
-                  <h2>{observation.birdId.sciName}</h2>
-                  <p>Location Name</p>
-                  <p>{observation.date}</p>
+                  <h4>{observation.birdId.name}</h4>
+                  <h5>{observation.birdId.sciName}</h5>
+                  <div>Location Name</div>
+                  <div>{observation.date}</div>
                   <Link to={`/observations/${observation._id}`}>More Info</Link>
                 </div>
               );

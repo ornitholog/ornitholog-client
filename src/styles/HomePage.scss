@@ -10,58 +10,81 @@
   background-color: grey;
   margin-bottom: 2rem;
   position: relative;
+  background-image: url('../../public/owl-hero.jpg');
+  background-size: cover;
+  background-position: center center;
+  margin-bottom: 64px;
 }
 
 .hero-box {
-  width: 20%;
   position: absolute;
   top: 30%;
   left: 8rem;
-}
-
-.hero-box h1 {
-  font-size: 2rem;
-  margin-bottom: 1rem;
-}
-
-.hero-box p {
-  margin-bottom: 2rem;
+  h1 {
+    font-weight: 600;
+    margin-bottom: 1rem;
+    color: $white;
+  }
+  p {
+    margin-bottom: 2rem;
+    font-size: 1.25rem;
+    max-width: 460px;
+    line-height: 1.6;
+    font-weight: 300;
+    color: $white
+  }
 }
 
 .homepage-container {
   position: relative;
   margin: 0 auto;
   width: 90vw;
+  .flex-horizontal {
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 6rem;
+    h3 {
+      max-width: 230px;
+      margin-right: 4rem;
+    }
+    &:first {
+      flex-basis: 40%;
+    }
+  }
 }
 
-.filter-btn {
-  position: absolute;
-  top: 6rem;
-  right: 0;
+.filter-wrap {
+  margin-top: 2rem;
+  display: flex;
+  justify-content: flex-end;
+  select {
+    padding: .5rem .75rem;
+    margin-left: 1rem;
+  }
 }
 
 .card-container {
-  margin-top: 8rem;
-
+  margin-top: 1rem;
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
-  gap: 2rem;
+  gap: 1rem;
+  box-sizing: border-box;
 }
 
 .observation-card {
-  background: rgb(230, 229, 229);
+  flex-basis: 32.2%;
+  box-sizing: border-box;
+  background: $dark-300;
   border: 1px solid black;
-  width: 15rem;
-  height: 20rem;
-
+  padding: 1rem;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-}
-
-.observation-card img {
-  width: 10rem;
-  height: 10rem;
-  align-self: center;
+  h4 {
+    margin-bottom: .5em;
+  }
+  img {
+    max-width: 300px;
+    margin-bottom: 1em;
+  }
 }

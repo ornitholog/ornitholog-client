@@ -4,36 +4,34 @@
     display: flex;
     justify-content: space-between;
     background-color: $dark;
-    color: white;
+    color: $white;
     padding: 24px 5vw;
     align-items: center;
-    margin-bottom: 64px;
     position: sticky;
     top: 0;
     z-index: 999;
-    button {
-        background-color: $primary;
-        color: $white;
-        padding: 8px;
-        border: 0;
+    .logo img {
+        max-width: 232px;
     }
-}
-
-.NavBar ul {
-    display: flex;
-}
-
-.NavBar .logo {
-    font-size: 20px;
-    font-weight: 800;
-    color: darkgrey
-}
-
-.NavBar ul > li {
-    list-style: none;
-    margin-left: 32px;
-}
-
-.NavBar ul > li > a {
-    color: white
+    .btn {
+        margin-left: 32px;
+    }
+    ul {
+        display: flex;
+        li {
+            list-style: none;
+            margin-left: 32px;
+            a {
+                color: $white;
+                font-weight: 300;
+                text-decoration: none;
+                height: 100%;
+                display: flex;
+                align-items: center;
+                &:hover {
+                    color: $primary
+                }
+            }
+        }
+    }
 }

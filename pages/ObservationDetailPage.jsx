@@ -41,7 +41,7 @@ function ObservationDetailPage({ birdList, fetchObservationList }) {
         {observation === null ? (
           <h3>loading...</h3>
         ) : (
-          <div className="observation-detail flex-hor">
+          <div className="observation-detail flex-horizontal">
             <div>
               <h1>{observation.title}</h1>
               <h1>{observation.birdId.name}</h1>

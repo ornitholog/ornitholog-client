@@ -42,27 +42,29 @@ function FilterObservations({ observationList, setDisplayedObservations }) {
 
   return (
     <>
-      <div className="bird-filter">
-        <select value={selectedBird} onChange={changeBirdNameSelect}>
-          <option value="all">All</option>
-          {uniqueBirdNames &&
-            uniqueBirdNames.map((elm, i) => (
-              <option value={elm} key={i}>
-                {elm}
-              </option>
-            ))}
-        </select>
-      </div>
-      <div className="habitat-filter">
-        <select value={selectedHabitat} onChange={changeHabitatSelect}>
-          <option value="all">All</option>
-          {uniqueHabitats &&
-            uniqueHabitats.map((elm, i) => (
-              <option value={elm} key={i}>
-                {elm}
-              </option>
-            ))}
-        </select>
+      <div className="filter-wrap">
+        <div>
+          <select value={selectedBird} onChange={changeBirdNameSelect}>
+            <option value="all">All birds</option>
+            {uniqueBirdNames &&
+              uniqueBirdNames.map((elm, i) => (
+                <option value={elm} key={i}>
+                  {elm}
+                </option>
+              ))}
+          </select>
+        </div>
+        <div>
+          <select value={selectedHabitat} onChange={changeHabitatSelect}>
+            <option value="all">All habitats</option>
+            {uniqueHabitats &&
+              uniqueHabitats.map((elm, i) => (
+                <option value={elm} key={i}>
+                  {elm}
+                </option>
+              ))}
+          </select>
+        </div>
       </div>
 
     </>
