@@ -6,28 +6,37 @@ import Map from "../components/Map";
 import FilterObservations from "../components/FilterObservations";
 
 function HomePage({ observationList }) {
-
-  const [displayedObservations, setDisplayedObservations] = useState(observationList)
+  const [displayedObservations, setDisplayedObservations] =
+    useState(observationList);
 
   return (
     <div className="HomePage">
       <div className="hero">
         <div className="hero-box">
           <h1>OrnithoLog</h1>
-          <p>Contribute to Avian Conservation: OrnithoLog – Your Platform for Tracking and Reporting Bird Species Observations</p>
+          <p>
+            Contribute to Avian Conservation: OrnithoLog – Your Platform for
+            Tracking and Reporting Bird Species Observations
+          </p>
           <button className="btn btn-light">Join the community</button>
         </div>
       </div>
       <div className="homepage-container">
         <div className="flex-horizontal">
           <h3>Bird Observation Contributions</h3>
-          <p>Share valuable insights into avian ecosystems by uploading bird observations, including geo-location, temperature, habitat, and vegetation data. Your contributions can help in monitoring key bird species, providing insights into the health and status of ecosystems</p>
+          <p>
+            Share valuable insights into avian ecosystems by uploading bird
+            observations, including geo-location, temperature, habitat, and
+            vegetation data. Your contributions can help in monitoring key bird
+            species, providing insights into the health and status of ecosystems
+          </p>
         </div>
 
         <h2 className="center">Birds observations</h2>
         <FilterObservations
           observationList={observationList}
-          setDisplayedObservations={setDisplayedObservations} />
+          setDisplayedObservations={setDisplayedObservations}
+        />
 
         <div className="card-container">
           {displayedObservations &&

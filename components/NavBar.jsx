@@ -7,7 +7,7 @@ import IsPrivate from "../components/IsPrivate/IsPrivate";
 import IsAnon from "../components/IsAnon/IsAnon";
 import "../src/styles/NavBar.scss";
 
-function NavBar({ birdList }) {
+function NavBar({ birdList, fetchObservationList }) {
   const { isLoggedIn, user, logOutUser } = useContext(AuthContext);
   const [toggle, setToggle] = useState(false);
   return (
@@ -40,7 +40,12 @@ function NavBar({ birdList }) {
         </ul>
       </nav>
 
-      {toggle && isLoggedIn && <NewObservation birdList={birdList} />}
+      {toggle && isLoggedIn && (
+        <NewObservation
+          birdList={birdList}
+          fetchObservationList={fetchObservationList}
+        />
+      )}
     </>
   );
 }

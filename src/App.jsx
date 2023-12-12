@@ -55,7 +55,7 @@ function App() {
 
   return (
     <>
-      <NavBar birdList={birds} />
+      <NavBar birdList={birds} fetchObservationList={fetchObservations} />
 
       <Routes>
         <Route

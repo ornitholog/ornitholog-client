@@ -1,8 +1,8 @@
 import { useState } from "react";
 import axios from "axios";
-import service from "../services/file-upload.service"
+import service from "../services/file-upload.service";
 
-function NewObservation({ birdList }) {
+function NewObservation({ birdList, fetchObservationList }) {
   const url = import.meta.env.VITE_API_URL;
 
   const [bird, setBird] = useState("");
@@ -18,7 +18,8 @@ function NewObservation({ birdList }) {
   const [temperature, setTemperature] = useState(0);
   const [notes, setNotes] = useState("");
   const [suggestions, setSuggestions] = useState([]);
-  const [imageUploaded, setImageUploaded] = useState(null)
+  const [imageUploaded, setImageUploaded] = useState(null);
+
   const handleFileUpload = async (e) => {
     e.preventDefault();
     // console.log("The file to be uploaded is: ", e.target.files[0]);
@@ -28,19 +29,15 @@ function NewObservation({ birdList }) {
       // imageUrl => this name has to be the same as in the model since we pass
       // req.body to .create() method when creating a new movie in '/api/movies' POST route
       uploadData.append("photo", photo);
-      const response = await service.uploadImage(uploadData)
-      
+      const response = await service.uploadImage(uploadData);
 
-      await handleSubmit(response)
+      await handleSubmit(response);
     } catch (error) {
-      console.log("Error while uploading the file: ", error)
+      console.log("Error while uploading the file: ", error);
     }
-
-
   };
 
   const handleSubmit = async (image) => {
-
     try {
       const addedBird = birdList.find((elm) => {
         return elm.name === bird;
@@ -66,15 +63,14 @@ function NewObservation({ birdList }) {
       // Get the token from the localStorage
       const storedToken = localStorage.getItem("authToken");
 
-
-      await axios
-        .post(`${url}/api/observations`, requestBody, {
-          headers: { Authorization: `Bearer ${storedToken}` },
-        })
+      await axios.post(`${url}/api/observations`, requestBody, {
+        headers: { Authorization: `Bearer ${storedToken}` },
+      });
     } catch (error) {
-      console.log(error)
+      console.log(error);
     } finally {
       setTitle("");
+      setBird("");
       setDate(new Date());
       setLatitude(0);
       setLongitude(0);
@@ -85,12 +81,10 @@ function NewObservation({ birdList }) {
       setSound("");
       setTemperature(0);
       setNotes("");
+      fetchObservationList();
     }
 
-
     // Send the token through the request "Authorization" Headers
-
-
   };
 
   const birdListArray = birdList.map((bird) => {
