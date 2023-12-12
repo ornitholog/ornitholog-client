@@ -1,5 +1,6 @@
 import { useState } from "react";
 import axios from "axios";
+import service from "../services/file-upload.service"
 
 function NewObservation({ birdList }) {
   const url = import.meta.env.VITE_API_URL;
@@ -17,54 +18,79 @@ function NewObservation({ birdList }) {
   const [temperature, setTemperature] = useState(0);
   const [notes, setNotes] = useState("");
   const [suggestions, setSuggestions] = useState([]);
-
-  const handleSubmit = (e) => {
+  const [imageUploaded, setImageUploaded] = useState(null)
+  const handleFileUpload = async (e) => {
     e.preventDefault();
+    // console.log("The file to be uploaded is: ", e.target.files[0]);
+    try {
+      const uploadData = new FormData();
 
-    const addedBird = birdList.find((elm) => {
-      return elm.name === bird;
-    });
+      // imageUrl => this name has to be the same as in the model since we pass
+      // req.body to .create() method when creating a new movie in '/api/movies' POST route
+      uploadData.append("photo", photo);
+      const response = await service.uploadImage(uploadData)
+      
 
-    const requestBody = {
-      birdId: addedBird._id,
-      date,
-      title,
-      location: {
-        type: "Point",
-        coordinates: [latitude, longitude],
-      },
-      habitat,
-      vegetation,
-      age,
-      photo,
-      sound,
-      temperature,
-      notes,
-    };
+      await handleSubmit(response)
+    } catch (error) {
+      console.log("Error while uploading the file: ", error)
+    }
 
-    // Get the token from the localStorage
-    const storedToken = localStorage.getItem("authToken");
+
+  };
+
+  const handleSubmit = async (image) => {
+
+    try {
+      const addedBird = birdList.find((elm) => {
+        return elm.name === bird;
+      });
+
+      const requestBody = {
+        birdId: addedBird._id,
+        date,
+        title,
+        location: {
+          type: "Point",
+          coordinates: [latitude, longitude],
+        },
+        habitat,
+        vegetation,
+        age,
+        photo: image,
+        sound,
+        temperature,
+        notes,
+      };
+
+      // Get the token from the localStorage
+      const storedToken = localStorage.getItem("authToken");
+
+
+      await axios
+        .post(`${url}/api/observations`, requestBody, {
+          headers: { Authorization: `Bearer ${storedToken}` },
+        })
+    } catch (error) {
+      console.log(error)
+    } finally {
+      setTitle("");
+      setDate(new Date());
+      setLatitude(0);
+      setLongitude(0);
+      setHabitat("");
+      setVegetation("");
+      setAge("");
+      setPhoto("");
+      setSound("");
+      setTemperature(0);
+      setNotes("");
+    }
+
 
     // Send the token through the request "Authorization" Headers
-    axios
-      .post(`${url}/api/observations/`, requestBody, {
-        headers: { Authorization: `Bearer ${storedToken}` },
-      })
-      .then((response) => {
-        // Reset the state
-        setTitle("");
-        setDate(new Date());
-        setLatitude(0);
-        setLongitude(0);
-        setHabitat("");
-        setVegetation("");
-        setAge("");
-        setPhoto("");
-        setSound("");
-        setTemperature(0);
-        setNotes("");
-      })
-      .catch((error) => console.log(error));
+
+
   };
 
   const birdListArray = birdList.map((bird) => {
@@ -92,7 +118,7 @@ function NewObservation({ birdList }) {
       <div className="createObservation container">
         <h2>Add your bird observation</h2>
 
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleFileUpload}>
           <label>
             Title:
             <input
@@ -106,7 +132,7 @@ function NewObservation({ birdList }) {
             <input
               type="file"
               accept="image/*"
-              onChange={(e) => setPhoto(e.target.value)}
+              onChange={(e) => setPhoto(e.target.files[0])}
             />
           </label>
           <label>
