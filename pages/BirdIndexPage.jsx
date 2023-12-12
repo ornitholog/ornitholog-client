@@ -1,10 +1,10 @@
 import { Link } from "react-router-dom";
 
 function BirdIndexPage({ birdList }) {
-  //   const sortedBirds = birdList.sort((a, b) =>
-  //     a.name > b.name ? 1 : b.name > a.name ? -1 : 0
-  //   );
-  //   console.log(sortedBirds);
+  if (birdList) {
+    birdList.sort((a, b) => (a.name > b.name ? 1 : b.name > a.name ? -1 : 0));
+  }
+
   return (
     <>
       <div className="container">
@@ -13,8 +13,8 @@ function BirdIndexPage({ birdList }) {
           {birdList &&
             birdList.map((bird) => {
               return (
-                <div div className="observation-card">
-                  <img src={bird.image} style={{ height: "50px" }}></img>
+                <div className="observation-card" key={bird._id}>
+                  <img src={bird.image}></img>
                   <p>{bird.name}</p>
                   <p>{bird.sciName}</p>
                   <p>{bird.habitat}</p>
