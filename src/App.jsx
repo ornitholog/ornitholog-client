@@ -33,10 +33,6 @@ function App() {
       .catch((error) => {});
   };
 
-  // const fetchFilteredObservation = (birdName, habitat) = {
-
-  // }
-
   const fetchBirds = () => {
     axios
       .get(`${url}/api/birds`)
@@ -78,7 +74,7 @@ function App() {
           element={
             <IsPrivate>
               {" "}
-              <ProfilePage />{" "}
+              <ProfilePage observationList={observations} />{" "}
             </IsPrivate>
           }
         ></Route>

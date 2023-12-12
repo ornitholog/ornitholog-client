@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import NewObservation from "./NewObservation";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useContext } from "react";
 import { AuthContext } from "../context/auth.context";
 import IsPrivate from "../components/IsPrivate/IsPrivate";
@@ -8,8 +8,18 @@ import IsAnon from "../components/IsAnon/IsAnon";
 import "../src/styles/NavBar.scss";
 
 function NavBar({ birdList, fetchObservationList }) {
+
   const { isLoggedIn, user, logOutUser } = useContext(AuthContext);
   const [toggle, setToggle] = useState(false);
+  const [userId, setUserId] = useState(null)
+
+  useEffect(() => {
+    if(user){
+      setUserId(user._id)
+    }
+  }, [user])
+
+  
   return (
     <>
       <nav className="NavBar">
@@ -20,9 +30,11 @@ function NavBar({ birdList, fetchObservationList }) {
           <li>
             <Link to="/">Home</Link>
           </li>
+          { isLoggedIn && userId && (
           <li>
-            <Link to="#">Profile</Link>
+            <Link to={`/profile/${userId}`}> Profile</Link>
           </li>
+          )}
           <li>
             <Link to="/birds">Birds</Link>
           </li>
