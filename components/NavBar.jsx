@@ -5,7 +5,7 @@ import { useContext } from "react";
 import { AuthContext } from "../context/auth.context";
 import IsPrivate from "../components/IsPrivate/IsPrivate";
 import IsAnon from "../components/IsAnon/IsAnon";
-import "../src/styles/NavBar.scss"
+import "../src/styles/NavBar.scss";
 
 function NavBar({ birdList }) {
   const { isLoggedIn, user, logOutUser } = useContext(AuthContext);
@@ -24,7 +24,7 @@ function NavBar({ birdList }) {
             <Link to="#">Profile</Link>
           </li>
           <li>
-            <Link to="#">Birds</Link>
+            <Link to="/birds">Birds</Link>
           </li>
 
           {!isLoggedIn && (
