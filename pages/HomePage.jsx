@@ -1,13 +1,32 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "../src/styles/HomePage.scss";
 import { Link } from "react-router-dom";
 import Map from "../components/Map";
+import service from "../services/geoCoder.service";
 
 import FilterObservations from "../components/FilterObservations";
 
 function HomePage({ observationList }) {
   const [displayedObservations, setDisplayedObservations] =
     useState(observationList);
+  const [geoData, setGeoData] = useState({});
+
+  useEffect(() => {
+    const fetchGeoData = async (longitude, latitude) => {
+      try {
+        const data = await service.geoCoder(longitude, latitude);
+        setGeoData(data);
+      } catch (error) {
+        console.error("Error fetching geo data:", error);
+      }
+    };
+
+    if (observationList) {
+      displayedObservations.forEach((observation) => {
+        fetchGeoData(observation.location[0], observation.location[1]);
+      });
+    }
+  }, [displayedObservations]);
 
   return (
     <div className="HomePage">
@@ -46,7 +65,9 @@ function HomePage({ observationList }) {
                   <img src={observation.photo}></img>
                   <h4>{observation.birdId.name}</h4>
                   <h5>{observation.birdId.sciName}</h5>
-                  <div>Location Name</div>
+                  <p>
+                    {`${geoData.city} - ${geoData.countryName}` || "Loading..."}
+                  </p>
                   <div>{observation.date}</div>
                   <Link to={`/observations/${observation._id}`}>More Info</Link>
                 </div>
