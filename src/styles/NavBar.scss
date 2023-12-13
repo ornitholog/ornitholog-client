@@ -16,6 +16,13 @@
     .btn {
         margin-left: 32px;
     }
+    .logout {
+        color: $white;
+        background-color: unset;
+        img {
+            margin-right: 4px;
+        }
+    }
     ul {
         display: flex;
         li {

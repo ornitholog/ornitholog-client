@@ -7,6 +7,7 @@ import IsPrivate from "../components/IsPrivate/IsPrivate";
 import IsAnon from "../components/IsAnon/IsAnon";
 import "../src/styles/NavBar.scss";
 import logo from "../src/assets/ornitholog-logo-white.svg"
+import logout from "../src/assets/logout.svg"
 
 function NavBar({ birdList, fetchObservationList }) {
 
@@ -46,9 +47,16 @@ function NavBar({ birdList, fetchObservationList }) {
             </li>
           )}
           {isLoggedIn && (
+            <>
+            <li>
+              <a onClick={() => logOutUser()} className="logout">
+                Logout
+              </a>
+            </li>
             <button onClick={() => setToggle(!toggle)} className="btn">
               Create observation
             </button>
+            </>
           )}
         </ul>
       </nav>
