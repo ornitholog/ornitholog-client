@@ -108,12 +108,16 @@
   }
 
   .more-info {
-    text-decoration: none;
     text-align: right;
     color: $primary-500;
-    cursor: pointer;
-    :hover {
-      color: $white-500;
+
+    a {
+      text-decoration: none;
+      color: $primary-500;
+      &:hover {
+        color: $white-500;
+        cursor: pointer;
+      }
     }
   }
 }

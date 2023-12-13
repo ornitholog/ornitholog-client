@@ -1,5 +1,5 @@
 import service from "../services/geoCoder.service";
-
+import chevron from "../src/assets/chevron-right.svg";
 // import "../src/styles/ObservationDetails.scss";
 import { Link } from "react-router-dom";
 import React, { useState, useEffect } from "react";
@@ -38,10 +38,24 @@ function ObservationDetails({ observation, summary }) {
         <div>
           {locationDetails.city} - {locationDetails.countryName}
         </div>
-
-        <Link to={`/observations/${observation._id}`} className="more-info">
-          More Info
-        </Link>
+        <div></div>
+        <div className="more-info">
+          <Link to={`/observations/${observation._id}`}>More Info</Link>
+          <svg
+            className="something"
+            xmlns="http://www.w3.org/2000/svg"
+            width="12"
+            height="12"
+            viewBox="0 0 12 12"
+          >
+            <g class="nc-icon-wrapper" fill="currentColor">
+              <path
+                d="M4.781.375a1,1,0,0,0-1.562,1.25L6.719,6l-3.5,4.375a1,1,0,0,0,1.562,1.25l4-5a1,1,0,0,0,0-1.25Z"
+                fill="currentColor"
+              ></path>
+            </g>
+          </svg>
+        </div>
       </div>
     </div>
   );
