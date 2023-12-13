@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Map from "../components/Map";
 import ObservationDetails from "../components/ObservationDetails.jsx";
 import FilterObservations from "../components/FilterObservations";
+import "../src/styles/HomePage.scss";
 
 function HomePage({ observationList }) {
   const [displayedObservations, setDisplayedObservations] =
@@ -43,7 +44,7 @@ function HomePage({ observationList }) {
                 <ObservationDetails
                   observation={observation}
                   summary={true}
-                  key={observation._id}
+                  key={index}
                 />
               );
             })}
