@@ -13,7 +13,7 @@ function Map({ observationList }) {
           observationList.map((observation) => {
             return (
               <GeoJSON data={observation.location} key={observation._id}>
-                <Tooltip>{observation.birdId.name}</Tooltip>
+                <Tooltip>{observation.title}</Tooltip>
               </GeoJSON>
             );
           })}
