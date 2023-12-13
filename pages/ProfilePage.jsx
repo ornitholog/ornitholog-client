@@ -17,12 +17,6 @@ function ProfilePage({ observationList }){
         returnCreatorList()
     }, [observationList])
 
-
-    useEffect(() => {
-        console.log(userObservations);
-    })
-
-
     return(
         <>
             <div className="container profile">
@@ -38,9 +32,6 @@ function ProfilePage({ observationList }){
                                     <h6>{elm.birdId.sciName}</h6>
                                     <div>{elm.date}</div>
                                     <div><span>Habitat:</span>{elm.habitat}</div>
-                                    <div><span>Vegetation:</span>{elm.vegetation}</div>
-                                    <div><span>Temperature:</span>{elm.temperature}</div>
-                                    <div><span>Notes:</span>{elm.notes}</div>
                                     <Link to={`/observations/${elm._id}`}>Detail</Link>
                                 </div>
                             )
