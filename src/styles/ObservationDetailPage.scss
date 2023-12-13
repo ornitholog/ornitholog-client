@@ -6,7 +6,7 @@
     background-color: $mixed;
     padding: 3rem 2rem;
     > .observation-info {
-        flex-basis: 50%;
+        flex-basis: 40%;
         h1 {
             font-size: 2.5rem;
             margin-bottom: 2rem;
@@ -49,6 +49,12 @@
             .delete-btn {
                 margin-left: 1em;
             }
+        }
+    }
+    .img-wrap {
+        flex-basis: 60%;
+        img {
+            width: 100%;
         }
     }
 }
