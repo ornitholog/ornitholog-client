@@ -5,7 +5,7 @@ import EditObservation from "../components/EditObservation";
 import DeleteObservation from "../components/DeleteObservation";
 import { useContext } from "react";
 import { AuthContext } from "../context/auth.context";
-import "../src/styles/BirdDetailsPage.scss"
+import "../src/styles/ObservationDetailPage.scss"
 
 function ObservationDetailPage({ birdList, fetchObservationList }) {
   const { user } = useContext(AuthContext);
@@ -41,17 +41,16 @@ function ObservationDetailPage({ birdList, fetchObservationList }) {
         {observation === null ? (
           <h3>loading...</h3>
         ) : (
-          <div className="observation-detail flex-horizontal">
+          <div className="ObservationDetail flex-horizontal">
             <div>
               <h1>{observation.title}</h1>
-              <h1>{observation.birdId.name}</h1>
-              <div>{observation.birdId.sciName}</div>
-              <div>{observation.habitat}</div>
-              <div>{observation.vegetation}</div>
-              <div>{observation.age}</div>
-              <div>{observation.temperature}°C</div>
-              <div>{observation.date.slice(0, 10)}</div>
-              <div>{observation.notes}</div>
+              <h4>{observation.birdId.name} - <em>{observation.birdId.sciName}</em></h4>
+              <div><span>Habitat:</span>{observation.habitat}</div>
+              <div><span>Vegetation:</span>{observation.vegetation}</div>
+              <div><span>Age:</span>{observation.age}</div>
+              <div><span>Temperature:</span>{observation.temperature}°C</div>
+              <div><span>Date:</span>{observation.date.slice(0, 10)}</div>
+              <div className="notes"><span>Observation notes:</span>{observation.notes}</div>
             </div>
             <div className="img-wrap">
               <img src={observation.photo} alt="" />
