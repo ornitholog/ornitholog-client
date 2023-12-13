@@ -7,7 +7,6 @@
 .hero {
   width: 100%;
   height: 75vh;
-  background-color: grey;
   margin-bottom: 2rem;
   position: relative;
   background-image: url("../assets/owl-hero.jpg");
@@ -74,8 +73,7 @@
 .observation-card {
   flex: 0 1 calc(25% - 12px);
   box-sizing: border-box;
-  background: $dark-300;
-  border: 1px solid black;
+  background: $mixed;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
