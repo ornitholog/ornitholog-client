@@ -22,7 +22,7 @@ function DeleteObservation({ fetchObservationList }) {
 
   return (
     <div>
-      <button onClick={deleteObservation}>Delete</button>
+      <button className="btn btn-light delete-btn" onClick={deleteObservation}>Delete</button>
     </div>
   );
 }

@@ -42,7 +42,7 @@ function ObservationDetailPage({ birdList, fetchObservationList }) {
           <h3>loading...</h3>
         ) : (
           <div className="ObservationDetail flex-horizontal">
-            <div>
+            <div className="observation-info">
               <h1>{observation.title}</h1>
               <h4>{observation.birdId.name} - <em>{observation.birdId.sciName}</em></h4>
               <div><span>Habitat:</span>{observation.habitat}</div>
@@ -51,29 +51,28 @@ function ObservationDetailPage({ birdList, fetchObservationList }) {
               <div><span>Temperature:</span>{observation.temperature}°C</div>
               <div><span>Date:</span>{observation.date.slice(0, 10)}</div>
               <div className="notes"><span>Observation notes:</span>{observation.notes}</div>
+              {user && user._id === observation.creator && (
+                <div className="btns-wrap">
+                  <button onClick={() => setToggle(!toggle)} className="btn">
+                    Edit
+                  </button>
+                  {toggle && (
+                    <EditObservation
+                      observationDetails={observation}
+                      getObservation={getObservation}
+                      fetchObservationList={fetchObservationList}
+                      birdList={birdList}
+                    />
+                  )}
+                  <DeleteObservation
+                    fetchObservationList={fetchObservationList}
+                  />
+                </div>
+              )}
             </div>
             <div className="img-wrap">
               <img src={observation.photo} alt="" />
             </div>
-
-            {user && user._id === observation.creator && (
-              <>
-                <button onClick={() => setToggle(!toggle)} className="btn">
-                  Edit
-                </button>
-                {toggle && (
-                  <EditObservation
-                    observationDetails={observation}
-                    getObservation={getObservation}
-                    fetchObservationList={fetchObservationList}
-                    birdList={birdList}
-                  />
-                )}
-                <DeleteObservation
-                  fetchObservationList={fetchObservationList}
-                />
-              </>
-            )}
           </div>
         )}
       </div>

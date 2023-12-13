@@ -5,7 +5,7 @@
     gap: 2rem;
     background-color: $mixed;
     padding: 3rem 2rem;
-    > div {
+    > .observation-info {
         flex-basis: 50%;
         h1 {
             font-size: 2.5rem;
@@ -21,9 +21,9 @@
         img {
             max-width: 100%;
         }
-        div {
+        > div:not(.btns-wrap, .notes) {
             padding-bottom: .5rem;
-            border-bottom: #575757 1px solid;
+            border-bottom: $mixed-500 1px solid;
             margin-bottom: .5rem;
             font-weight: 400;
             > span {
@@ -31,10 +31,10 @@
                 width: 164px;
                 font-weight: 200;
             }
-
         }
         .notes {
             margin-top: 2rem;
+            margin-bottom: 3em;
             border-bottom: 0;
             font-weight: 200;
             line-height: 1.5;
@@ -42,6 +42,12 @@
                 display: block;
                 margin-bottom: .5rem;
                 font-weight: 500;
+            }
+        }
+        .btns-wrap {
+            display: flex;
+            .delete-btn {
+                margin-left: 1em;
             }
         }
     }
