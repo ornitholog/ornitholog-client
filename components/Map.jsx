@@ -11,7 +11,6 @@ function Map({ observationList }) {
         />
         {observationList &&
           observationList.map((observation) => {
-            console.log(observation.location)
             return (
               <GeoJSON data={observation.location} key={observation._id}>
                 <Tooltip>{observation.title}</Tooltip>

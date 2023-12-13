@@ -18,11 +18,9 @@ function NewObservation({ birdList, fetchObservationList }) {
   const [temperature, setTemperature] = useState(0);
   const [notes, setNotes] = useState("");
   const [suggestions, setSuggestions] = useState([]);
-  const [imageUploaded, setImageUploaded] = useState(null);
 
   const handleFileUpload = async (e) => {
     e.preventDefault();
-    // console.log("The file to be uploaded is: ", e.target.files[0]);
     try {
       const uploadData = new FormData();
 
@@ -49,7 +47,7 @@ function NewObservation({ birdList, fetchObservationList }) {
         title,
         location: {
           type: "Point",
-          coordinates: [latitude, longitude],
+          coordinates: [longitude, latitude],
         },
         habitat,
         vegetation,
@@ -109,7 +107,7 @@ function NewObservation({ birdList, fetchObservationList }) {
 
   return (
     <>
-      <div className="createObservation container">
+      <div className="NewObservation container modal">
         <h2>Add your bird observation</h2>
 
         <form onSubmit={handleFileUpload}>
@@ -122,13 +120,7 @@ function NewObservation({ birdList, fetchObservationList }) {
               onChange={(e) => setTitle(e.target.value)}
             />
           </label>
-          <label>
-            <input
-              type="file"
-              accept="image/*"
-              onChange={(e) => setPhoto(e.target.files[0])}
-            />
-          </label>
+
           <label>
             Observed Bird:
             <input type="text" value={bird} onChange={handleInputChange} />
@@ -170,19 +162,21 @@ function NewObservation({ birdList, fetchObservationList }) {
               onChange={(e) => setLongitude(e.target.value)}
             />
           </label>
-          <select
-            onChange={(e) => {
-              setHabitat(e.target.value);
-            }}
-          >
-            <option value="forest">Forest</option>
-            <option value="grassland">Grassland</option>
-            <option value="wetland">Wetland</option>
-            <option value="coast">Coast</option>
-            <option value="urban">Urban</option>
-            <option value="mountain">Mountain</option>
-            <option value="river">River</option>
-          </select>
+          <label>
+            <select
+              onChange={(e) => {
+                setHabitat(e.target.value);
+              }}
+            >
+              <option value="forest">Forest</option>
+              <option value="grassland">Grassland</option>
+              <option value="wetland">Wetland</option>
+              <option value="coast">Coast</option>
+              <option value="urban">Urban</option>
+              <option value="mountain">Mountain</option>
+              <option value="river">River</option>
+            </select>
+          </label>
           <label>
             Vegetation:
             <input
@@ -192,22 +186,16 @@ function NewObservation({ birdList, fetchObservationList }) {
               onChange={(e) => setVegetation(e.target.value)}
             />
           </label>
-          <select
-            onChange={(e) => {
-              setAge(e.target.value);
-            }}
-          >
-            <option value="juvenil">Juvenil</option>
-            <option value="adult">Adult</option>
-          </select>
           <label>
-            Sound:
-            <input
-              type="text"
-              name="sound"
-              value={sound}
-              onChange={(e) => setSound(e.target.value)}
-            />
+            Age:
+            <select
+              onChange={(e) => {
+                setAge(e.target.value);
+              }}
+            >
+              <option value="juvenil">Juvenil</option>
+              <option value="adult">Adult</option>
+            </select>
           </label>
 
           <label>
@@ -217,6 +205,14 @@ function NewObservation({ birdList, fetchObservationList }) {
               name="temperature"
               value={temperature}
               onChange={(e) => setTemperature(parseInt(e.target.value))}
+            />
+          </label>
+          <label>
+            Upload Photo:
+            <input
+              type="file"
+              accept="image/*"
+              onChange={(e) => setPhoto(e.target.files[0])}
             />
           </label>
 

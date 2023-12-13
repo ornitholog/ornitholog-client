@@ -1,24 +1,32 @@
 @import "./styles/variables";
 
-*, div, h1, h2, h3, h4, p {
-    font-family: 'Poppins', sans-serif;
+*,
+div,
+h1,
+h2,
+h3,
+h4,
+p {
+  font-family: "Poppins", sans-serif;
 }
 
 :root {
   box-sizing: border-box;
 }
 
-
 body {
   background-color: $dark;
   color: $white-500;
 }
 
-input, select, textarea {
+input,
+select,
+textarea {
   border-radius: 2px;
 }
 
-h1, .main-title {
+h1,
+.main-title {
   font-size: 4rem;
 }
 
@@ -97,9 +105,39 @@ form {
 }
 
 .leaflet-container {
-height: 50vh;
-} 
-form label, form input, form select {
+  height: 50vh;
+}
+form label,
+form input,
+form select {
   margin-bottom: 16px;
   display: block;
+}
+
+.modal {
+  position: fixed;
+  z-index: 999;
+  top: 10rem;
+  left: 30vw;
+  background-color: $dark; /* Replace with your desired background color */
+  padding: 2rem;
+  backdrop-filter: none;
+  border: 10px solid $dark;
+
+  &::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    backdrop-filter: blur(1px); /* Adjust the blur intensity as needed */
+    z-index: -1;
+  }
+
+  form {
+    input {
+      width: 20rem;
+    }
+  }
 }
