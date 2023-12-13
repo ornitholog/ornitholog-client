@@ -23,7 +23,7 @@
     }
     div {
       padding-bottom: 0.5rem;
-      border-bottom: rgb(87, 87, 87) 1px solid;
+      border-bottom: #575757 1px solid;
       margin-bottom: 0.5rem;
       font-weight: 400;
       > span {
@@ -42,6 +42,38 @@
         margin-bottom: 0.5rem;
         font-weight: 500;
       }
+    }
+  }
+  h4 {
+    margin-bottom: 2rem;
+    font-weight: 500;
+  }
+  em {
+    font-weight: 300;
+  }
+  img {
+    max-width: 100%;
+  }
+  div {
+    padding-bottom: 0.5rem;
+    border-bottom: rgb(87, 87, 87) 1px solid;
+    margin-bottom: 0.5rem;
+    font-weight: 400;
+    > span {
+      display: inline-block;
+      width: 164px;
+      font-weight: 200;
+    }
+  }
+  .notes {
+    margin-top: 2rem;
+    border-bottom: 0;
+    font-weight: 200;
+    line-height: 1.5;
+    span {
+      display: block;
+      margin-bottom: 0.5rem;
+      font-weight: 500;
     }
   }
 }
