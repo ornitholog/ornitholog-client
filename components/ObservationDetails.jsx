@@ -1,6 +1,4 @@
 import service from "../services/geoCoder.service";
-import chevron from "../src/assets/chevron-right.svg";
-// import "../src/styles/ObservationDetails.scss";
 import { Link } from "react-router-dom";
 import React, { useState, useEffect } from "react";
 
