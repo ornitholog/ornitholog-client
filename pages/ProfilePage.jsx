@@ -1,5 +1,6 @@
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../context/auth.context";
+import { Link } from "react-router-dom";
 
 function ProfilePage({ observationList }){
     const { isLoggedIn, user, logOutUser } = useContext(AuthContext)
@@ -40,6 +41,7 @@ function ProfilePage({ observationList }){
                                     <div><span>Vegetation:</span>{elm.vegetation}</div>
                                     <div><span>Temperature:</span>{elm.temperature}</div>
                                     <div><span>Notes:</span>{elm.notes}</div>
+                                    <Link to={`/observations/${elm._id}`}>Detail</Link>
                                 </div>
                             )
                         })

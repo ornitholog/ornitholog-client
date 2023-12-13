@@ -6,6 +6,7 @@ import { AuthContext } from "../context/auth.context";
 import IsPrivate from "../components/IsPrivate/IsPrivate";
 import IsAnon from "../components/IsAnon/IsAnon";
 import "../src/styles/NavBar.scss";
+import logo from "../src/assets/ornitholog-logo-white.svg"
 
 function NavBar({ birdList, fetchObservationList }) {
 
@@ -24,7 +25,7 @@ function NavBar({ birdList, fetchObservationList }) {
     <>
       <nav className="NavBar">
         <Link className="logo" to="/">
-          <img src="./ornitholog-logo-white.svg" alt="logo" />
+          <img src={logo} alt="logo" />
         </Link>
         <ul>
           <li>
