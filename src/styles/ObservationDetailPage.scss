@@ -1,79 +1,60 @@
 @import "./variables";
 
 .ObservationDetail {
-  margin-top: 3rem;
-  gap: 2rem;
-  background-color: $mixed;
-  padding: 3rem 2rem;
-  > div {
-    flex-basis: 50%;
-    h1 {
-      font-size: 2.5rem;
-      margin-bottom: 2rem;
+    margin-top: 3rem;
+    gap: 2rem;
+    background-color: $mixed;
+    padding: 3rem 2rem;
+    > .observation-info {
+        flex-basis: 40%;
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+        }
+        h4 {
+            margin-bottom: 2rem;
+            font-weight: 500;
+        }
+        em {
+            font-weight: 300;
+        }
+        img {
+            max-width: 100%;
+        }
+        > div:not(.btns-wrap, .notes) {
+            padding-bottom: .5rem;
+            border-bottom: $mixed-500 1px solid;
+            margin-bottom: .5rem;
+            font-weight: 400;
+            > span {
+                display: inline-block;
+                width: 164px;
+                font-weight: 200;
+            }
+        }
+        .notes {
+            margin-top: 2rem;
+            margin-bottom: 3em;
+            border-bottom: 0;
+            font-weight: 200;
+            line-height: 1.5;
+            span {
+                display: block;
+                margin-bottom: .5rem;
+                font-weight: 500;
+            }
+        }
+        .btns-wrap {
+            display: flex;
+            .delete-btn {
+                margin-left: 1em;
+            }
+        }
     }
-    h4 {
-      margin-bottom: 2rem;
-      font-weight: 500;
+    .img-wrap {
+        flex-basis: 60%;
+        img {
+            width: 100%;
+        }
     }
-    em {
-      font-weight: 300;
-    }
-    img {
-      max-width: 100%;
-    }
-    div {
-      padding-bottom: 0.5rem;
-      border-bottom: #575757 1px solid;
-      margin-bottom: 0.5rem;
-      font-weight: 400;
-      > span {
-        display: inline-block;
-        width: 164px;
-        font-weight: 200;
-      }
-    }
-    .notes {
-      margin-top: 2rem;
-      border-bottom: 0;
-      font-weight: 200;
-      line-height: 1.5;
-      span {
-        display: block;
-        margin-bottom: 0.5rem;
-        font-weight: 500;
-      }
-    }
-  }
-  h4 {
-    margin-bottom: 2rem;
-    font-weight: 500;
-  }
-  em {
-    font-weight: 300;
-  }
-  img {
-    max-width: 100%;
-  }
-  div {
-    padding-bottom: 0.5rem;
-    border-bottom: rgb(87, 87, 87) 1px solid;
-    margin-bottom: 0.5rem;
-    font-weight: 400;
-    > span {
-      display: inline-block;
-      width: 164px;
-      font-weight: 200;
-    }
-  }
-  .notes {
-    margin-top: 2rem;
-    border-bottom: 0;
-    font-weight: 200;
-    line-height: 1.5;
-    span {
-      display: block;
-      margin-bottom: 0.5rem;
-      font-weight: 500;
-    }
-  }
 }

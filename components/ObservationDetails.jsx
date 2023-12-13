@@ -40,7 +40,6 @@ function ObservationDetails({ observation, summary }) {
         <h4>{observation.title}</h4>
         <h5>{observation.birdId.name} - <em>{observation.birdId.sciName}</em></h5>
 
-        <div></div>
         <div className="more-info">
           <Link to={`/observations/${observation._id}`}>
             More Info

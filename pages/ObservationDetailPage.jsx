@@ -8,6 +8,7 @@ import { AuthContext } from "../context/auth.context";
 import "../src/styles/ObservationDetailPage.scss";
 import service from "../services/geoCoder.service";
 
+
 function ObservationDetailPage({ birdList, fetchObservationList }) {
   const url = import.meta.env.VITE_API_URL;
   const { id } = useParams();
@@ -42,6 +43,7 @@ function ObservationDetailPage({ birdList, fetchObservationList }) {
     getObservation();
   }, []);
 
+
   return (
     <>
       <div className="container">
@@ -49,7 +51,7 @@ function ObservationDetailPage({ birdList, fetchObservationList }) {
           <h3>loading...</h3>
         ) : (
           <div className="ObservationDetail flex-horizontal">
-            <div>
+            <div className="observation-info">
               <h1>{observation.title}</h1>
               <h4>
                 {observation.birdId.name} -{" "}
@@ -83,34 +85,30 @@ function ObservationDetailPage({ birdList, fetchObservationList }) {
                 <span>Country:</span>
                 {locationDetails.countryName}
               </div>
-              <div className="notes">
-                <span>Observation notes:</span>
-                {observation.notes}
-              </div>
+              <div className="notes"><span>Observation notes:</span>{observation.notes}</div>
+              {user && user._id === observation.creator && (
+                <div className="btns-wrap">
+                  <button onClick={() => setToggle(!toggle)} className="btn icon-btn">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16"><title>i-edit</title><g fill="#f2f2f2"><path d="M1.5,12c.053,0,.106-.008,.158-.026l3-1c.073-.024,.141-.066,.195-.121L12.854,2.854c.195-.195,.195-.512,0-.707L10.854,.146c-.195-.195-.512-.195-.707,0L2.146,8.146c-.055,.055-.097,.122-.121,.195l-1,3c-.06,.18-.013,.378,.121,.512,.096,.095,.223,.146,.354,.146Z"></path><path d="M15,14H1c-.553,0-1,.448-1,1s.447,1,1,1H15c.553,0,1-.448,1-1s-.447-1-1-1Z" fill="#f2f2f2"></path></g></svg>
+                    Edit
+                  </button>
+                  {toggle && (
+                    <EditObservation
+                      observationDetails={observation}
+                      getObservation={getObservation}
+                      fetchObservationList={fetchObservationList}
+                      birdList={birdList}
+                    />
+                  )}
+                  <DeleteObservation
+                    fetchObservationList={fetchObservationList}
+                  />
+                </div>
+              )}
             </div>
             <div className="img-wrap">
               <img src={observation.photo} alt="" />
             </div>
-
-            {user && user._id === observation.creator && (
-              <>
-                <button onClick={() => setToggle(!toggle)} className="btn">
-                  <img src="../src/assets/n-edit.svg" />
-                  Edit
-                </button>
-                {toggle && (
-                  <EditObservation
-                    observationDetails={observation}
-                    getObservation={getObservation}
-                    fetchObservationList={fetchObservationList}
-                    birdList={birdList}
-                  />
-                )}
-                <DeleteObservation
-                  fetchObservationList={fetchObservationList}
-                />
-              </>
-            )}
           </div>
         )}
       </div>
