@@ -51,6 +51,7 @@ function ObservationDetailPage({ birdList, fetchObservationList }) {
               <div>{observation.age}</div>
               <div>{observation.temperature}°C</div>
               <div>{observation.date.slice(0, 10)}</div>
+              <div>{observation.notes}</div>
             </div>
             <div className="img-wrap">
               <img src={observation.photo} alt="" />

@@ -9,7 +9,7 @@ function ObservationDetails({ observation, summary }) {
   const getGeoData = async (lat, long) => {
     try {
       const data = await service.geoCoder(lat, long);
-      console.log(data);
+      // console.log(data);
       setLocationDetails(data);
     } catch (error) {
       console.error("Error fetching geo data:", error);

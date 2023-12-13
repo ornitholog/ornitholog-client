@@ -17,6 +17,7 @@ function ProfilePage({ observationList }){
         returnCreatorList()
     }, [observationList])
 
+
     return(
         <>
             <div className="container profile">

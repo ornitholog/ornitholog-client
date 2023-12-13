@@ -51,6 +51,7 @@ function EditObservation({
       photo,
       sound,
       temperature,
+      notes
     };
 
     // Get the token from the localStorage
