@@ -29,10 +29,14 @@ function SignUpPage() {
 
   return (
     <>
-      <div className="SignUpPage">
+      <div className="SignUpPage container">
         <div className="auth-container">
-          <h1>Register</h1>
           <form onSubmit={handleSubmit}>
+            <h5 className="center">
+              Do you have alredy an account?<br />
+              <Link to={"/login"}>Please login here</Link>
+            </h5>
+            <h2>Register</h2>
             <label>Username:</label>
             <input
               type="text"
@@ -57,19 +61,15 @@ function SignUpPage() {
               onChange={(e) => setPassword(e.target.value)}
             />
 
-            <input
+            {/* <input
               type="file"
               name="profileImg"
               accept="image/png, image/jpeg"
-            />
-            <button className="submit-btn" type="submit">
+            /> */}
+            <button className="btn submit-btn" type="submit">
               Sign Up
             </button>
           </form>
-          <div className="something">
-            <p>Already have account?</p>
-            <Link to={"/login"}> Login</Link>
-          </div>
         </div>
 
         {errorMessage && <p>{errorMessage}</p>}

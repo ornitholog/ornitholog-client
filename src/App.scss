@@ -28,28 +28,33 @@ textarea {
 h1,
 .main-title {
   font-size: 4rem;
+  line-height: 1.2;
 }
 
 h2 {
   font-size: 2.75rem;
   font-weight: 600;
   margin-bottom: 1rem;
+  line-height: 1.2
 }
 
 h3 {
   font-size: 2rem;
   font-weight: 600;
   margin-bottom: 1rem;
+  line-height: 1.2
 }
 
 h4 {
   font-size: 1.5rem;
   font-weight: 500;
+  line-height: 1.2
 }
 
 h5 {
   font-size: 1.25rem;
   font-weight: 400;
+  line-height: 1.2
 }
 
 h6 {
@@ -109,18 +114,34 @@ p {
   flex-direction: row;
 }
 
-form {
-  margin-bottom: 64px;
-}
 
 .leaflet-container {
   height: 50vh;
 }
+
 form label,
 form input,
 form select {
-  margin-bottom: 16px;
   display: block;
+  border: 0;
+}
+
+form label {
+  margin-bottom: .5em;
+  color: $white-500;
+}
+
+form input,
+form select {
+  margin-bottom: 1rem;
+  width: 100%;
+  padding: .625rem 1rem;
+  background-color: $mixed-300;
+  color: $white;
+}
+
+form .btn {
+  width: 100%;
 }
 
 .modal {

@@ -1,33 +1,32 @@
 @import "./variables";
 
 .auth-container {
-  width: 30vw;
-  height: 50vh;
-  background: lightgray;
-  margin: 20vh auto;
+  width: 20vw;
+  background: $dark-300;
+  margin: 10vh auto;
   padding: 2rem;
-
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-}
-
-.auth-container h1 {
-  margin-bottom: 1rem;
-  align-self: center;
-}
-
-.auth-container input {
-  width: 100%;
-  margin-bottom: 1rem;
-}
-
-.submit-btn {
-  justify-self: center;
-  align-self: center;
-}
-
-.something {
-  align-self: center;
-  text-align: center;
+  @media (max-width: 1600px) {
+    width: 40%;
+  }
+  @media (max-width: 1200px) {
+    width: 60%;
+  }
+  @media (max-width: 640px) {
+    width: 100%;
+  }
+  h2 {
+    margin-top: .75em;
+    margin-bottom: .75em;
+  }
+  a {
+    color: $primary;
+    &:hover {
+      color: $primary-300
+    }
+  }
+  .btn {
+    margin-top: 1em;
+  }
 }
