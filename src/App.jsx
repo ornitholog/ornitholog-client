@@ -16,6 +16,7 @@ import BirdIndexPage from "../pages/BirdIndexPage";
 
 // Import Components
 import NavBar from "../components/NavBar";
+import Footer from "../components/Footer";
 import IsPrivate from "../components/IsPrivate/IsPrivate";
 import IsAnon from "../components/IsAnon/IsAnon";
 
@@ -88,6 +89,7 @@ function App() {
           element={<BirdIndexPage birdList={birds} />}
         ></Route>
       </Routes>
+      <Footer />
     </>
   );
 }

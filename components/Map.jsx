@@ -25,9 +25,6 @@ function Map({ observationList }) {
               observation.location.coordinates[0],
             ];
             return (
-              // <GeoJSON data={observation.location} key={observation._id}>
-              //   <Tooltip>{observation.title}</Tooltip>
-              // </GeoJSON>
               <CircleMarker
                 center={coordinates}
                 key={observation._id}
