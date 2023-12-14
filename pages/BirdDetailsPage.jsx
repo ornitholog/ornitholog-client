@@ -31,34 +31,35 @@ function BirdDetailPage({ birdList }) {
               </div>
               <div>
                 <span>Order:</span>
-                <h4>{selectedBird[0].order}</h4>
+                {selectedBird[0].order}
               </div>
-              <div>
-                <span>Region:</span>
-                {selectedBird[0].region.map((reg, index) => {
-                  return <div key={index}>{reg}</div>;
-                })}
-              </div>
+
+              {selectedBird[0].region.map((reg, index) => {
+                return (
+                  <div key={index}>
+                    <span>Region:</span>
+                    {reg}
+                  </div>
+                );
+              })}
 
               <div>
                 <span>Maximum length:</span>
-                <h4>{selectedBird[0].lengthMax}cm</h4>
+                {selectedBird[0].lengthMax}cm
               </div>
               <div>
                 <span>Maximum length:</span>
-                <h4>{selectedBird[0].lengthMax}cm</h4>
+                {selectedBird[0].lengthMax}cm
               </div>
               <div>
                 <span>Wingspan:</span>
-                <h4>{selectedBird[0].wingspanMin}cm</h4>
+                {selectedBird[0].wingspanMin}cm
               </div>
               <div>
                 <span>Status:</span>
-                <h4>{selectedBird[0].status}</h4>
+                {selectedBird[0].status}
               </div>
-              <div>
-                <h4>{selectedBird[0].infoText}</h4>
-              </div>
+              <div>{selectedBird[0].infoText}</div>
             </div>
             <div className="img-wrap">
               <img src={selectedBird[0].image} />
