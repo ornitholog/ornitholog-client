@@ -47,7 +47,13 @@ function ObservationDetails({ observation, summary }) {
                 ></path>
               </g>
             </svg>
-            {locationDetails.city} - {locationDetails.countryName}
+            {locationDetails.city ? (
+              <>
+                {locationDetails.city} - {locationDetails.countryName}
+              </>
+            ) : (
+              "Out of Range"
+            )}
           </div>
           <div className="observation-date">
             {date.getDate()}-{date.getMonth() + 1}-{date.getFullYear()}
