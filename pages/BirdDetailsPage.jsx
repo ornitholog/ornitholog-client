@@ -15,28 +15,54 @@ function BirdDetailPage({ birdList }) {
 
   return (
     <>
-      <div className="BirdDetailsPage">
+      <div className="container">
         {!selectedBird ? (
           <p>Loading ....</p>
         ) : (
-          <div className="bird-details-container">
-            <div className="bird-details">
+          <div className="ObservationDetail flex-horizontal">
+            <div className="observation-info">
               <h1>{selectedBird[0].name}</h1>
-              <h2>{selectedBird[0].sciName}</h2>
-              <h3>{`Family: ${selectedBird[0].family}`}</h3>
-              <h3>{`Order: ${selectedBird[0].order}`}</h3>
+              <h4>
+                <em>{selectedBird[0].sciName}</em>
+              </h4>
+              <div>
+                <span>Family:</span>
+                <h4>{selectedBird[0].family}</h4>
+              </div>
+              <div>
+                <span>Order:</span>
+                <h4>{selectedBird[0].order}</h4>
+              </div>
+              <div>
+                <span>Region:</span>
+                {selectedBird[0].region.map((reg, index) => {
+                  return <div key={index}>{reg}</div>;
+                })}
+              </div>
 
-              {selectedBird[0].region.map((reg, index) => {
-                return <p key={index}>{reg}</p>;
-              })}
-              <p>{`Maximum length: ${selectedBird[0].lengthMax}cm`}</p>
-              <p>
-                {`Wingspan: ${selectedBird[0].wingspanMin}cm - ${selectedBird[0].wingspanMax}cm`}
-              </p>
-              <p>{`Status: ${selectedBird[0].status}`}</p>
-              <p>{selectedBird[0].infoText}</p>
+              <div>
+                <span>Maximum length:</span>
+                <h4>{selectedBird[0].lengthMax}cm</h4>
+              </div>
+              <div>
+                <span>Maximum length:</span>
+                <h4>{selectedBird[0].lengthMax}cm</h4>
+              </div>
+              <div>
+                <span>Wingspan:</span>
+                <h4>{selectedBird[0].wingspanMin}cm</h4>
+              </div>
+              <div>
+                <span>Status:</span>
+                <h4>{selectedBird[0].status}</h4>
+              </div>
+              <div>
+                <h4>{selectedBird[0].infoText}</h4>
+              </div>
             </div>
-            <img className="bird-img" src={selectedBird[0].image} />
+            <div className="img-wrap">
+              <img src={selectedBird[0].image} />
+            </div>
           </div>
         )}
       </div>

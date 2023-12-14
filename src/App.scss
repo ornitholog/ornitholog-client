@@ -144,7 +144,6 @@ form .btn {
   width: 100%;
 }
 
-
 .modal {
   position: fixed;
   z-index: 999;
@@ -188,7 +187,7 @@ form .btn {
     height: 100%;
     backdrop-filter: blur(6px);
     z-index: -1;
-    background-color: rgba(0,0,0,.2);
+    background-color: rgba(0, 0, 0, 0.2);
   }
 
   form {

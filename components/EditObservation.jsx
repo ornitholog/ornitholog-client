@@ -1,11 +1,13 @@
 import { useState } from "react";
 import axios from "axios";
+import exitBtn from "../src/assets/exit.svg";
 
 function EditObservation({
   observationDetails,
   getObservation,
   birdList,
   fetchObservationList,
+  changeToggle,
 }) {
   console.log(observationDetails);
   const url = import.meta.env.VITE_API_URL;
@@ -51,7 +53,7 @@ function EditObservation({
       photo,
       sound,
       temperature,
-      notes
+      notes,
     };
 
     // Get the token from the localStorage
@@ -90,128 +92,135 @@ function EditObservation({
 
   return (
     <>
-      <div className="createObservation container">
-        <h2>Edit observation</h2>
+      <div className="createObservation modal">
+        <div className="modal-inner-wrap">
+          <button onClick={() => changeToggle(false)} className="exitBtn">
+            <img src={exitBtn} />
+          </button>
+          <h2>Edit observation</h2>
 
-        <form onSubmit={handleSubmit}>
-          <label>
-            Title:
+          <form onSubmit={handleSubmit}>
+            <label>
+              Title:
+              <input
+                type="text"
+                name="title"
+                value={title}
+                onChange={(e) => setTitle(e.target.value)}
+              />
+            </label>
+            <label>
+              Observed Bird:
+              <input type="text" value={bird} onChange={handleInputChange} />
+              <ul>
+                {suggestions.map((suggestion, index) => (
+                  <li
+                    key={index}
+                    onClick={() => handleSuggestionClick(suggestion)}
+                  >
+                    {suggestion}
+                  </li>
+                ))}
+              </ul>
+            </label>
             <input
-              type="text"
-              name="title"
-              value={title}
-              onChange={(e) => setTitle(e.target.value)}
+              type="file"
+              accept="image/*"
+              onChange={(e) => setPhoto(e.target.value)}
             />
-          </label>
-          <label>
-            Observed Bird:
-            <input type="text" value={bird} onChange={handleInputChange} />
-            <ul>
-              {suggestions.map((suggestion, index) => (
-                <li
-                  key={index}
-                  onClick={() => handleSuggestionClick(suggestion)}
-                >
-                  {suggestion}
-                </li>
-              ))}
-            </ul>
-          </label>
-          <input
-            type="file"
-            accept="image/*"
-            onChange={(e) => setPhoto(e.target.value)}
-          />
-          <label>
-            Date:
-            <input
-              type="datetime-local"
-              name="date"
-              value={date}
-              onChange={(e) => setDate(e.target.value)}
-            />
-          </label>
-          <label>
-            Latitude:
-            <input
-              type="number"
-              name="latitude"
-              value={latitude}
-              onChange={(e) => setLatitude(e.target.value)}
-            />
-          </label>
-          <label>
-            Longitude:
-            <input
-              type="number"
-              name="longitude"
-              value={longitude}
-              onChange={(e) => setLongitude(e.target.value)}
-            />
-          </label>
-          <select
-            onChange={(e) => {
-              setHabitat(e.target.value);
-            }}
-          >
-            <option value="forest">Forest</option>
-            <option value="grassland">Grassland</option>
-            <option value="wetland">Wetland</option>
-            <option value="coast">Coast</option>
-            <option value="urban">Urban</option>
-            <option value="mountain">Mountain</option>
-            <option value="river">River</option>
-          </select>
-          <label>
-            Vegetation:
-            <input
-              type="text"
-              name="vegetation"
-              value={vegetation}
-              onChange={(e) => setVegetation(e.target.value)}
-            />
-          </label>
-          <select
-            onChange={(e) => {
-              setAge(e.target.value);
-            }}
-          >
-            <option value="juvenil">Juvenil</option>
-            <option value="adult">Adult</option>
-          </select>
-          <label>
-            Sound:
-            <input
-              type="text"
-              name="sound"
-              value={sound}
-              onChange={(e) => setSound(e.target.value)}
-            />
-          </label>
+            <label>
+              Date:
+              <input
+                type="datetime-local"
+                name="date"
+                value={date}
+                onChange={(e) => setDate(e.target.value)}
+              />
+            </label>
+            <label>
+              Latitude:
+              <input
+                type="number"
+                name="latitude"
+                value={latitude}
+                onChange={(e) => setLatitude(e.target.value)}
+              />
+            </label>
+            <label>
+              Longitude:
+              <input
+                type="number"
+                name="longitude"
+                value={longitude}
+                onChange={(e) => setLongitude(e.target.value)}
+              />
+            </label>
+            <select
+              onChange={(e) => {
+                setHabitat(e.target.value);
+              }}
+            >
+              <option value="forest">Forest</option>
+              <option value="grassland">Grassland</option>
+              <option value="wetland">Wetland</option>
+              <option value="coast">Coast</option>
+              <option value="urban">Urban</option>
+              <option value="mountain">Mountain</option>
+              <option value="river">River</option>
+            </select>
+            <label>
+              Vegetation:
+              <input
+                type="text"
+                name="vegetation"
+                value={vegetation}
+                onChange={(e) => setVegetation(e.target.value)}
+              />
+            </label>
+            <select
+              onChange={(e) => {
+                setAge(e.target.value);
+              }}
+            >
+              <option value="juvenil">Juvenil</option>
+              <option value="adult">Adult</option>
+            </select>
+            <label>
+              Sound:
+              <input
+                type="text"
+                name="sound"
+                value={sound}
+                onChange={(e) => setSound(e.target.value)}
+              />
+            </label>
 
-          <label>
-            Temperature:
-            <input
-              type="number"
-              name="temperature"
-              value={temperature}
-              onChange={(e) => setTemperature(parseInt(e.target.value))}
-            />
-          </label>
+            <label>
+              Temperature:
+              <input
+                type="number"
+                name="temperature"
+                value={temperature}
+                onChange={(e) => setTemperature(parseInt(e.target.value))}
+              />
+            </label>
 
-          <label>
-            Note:
-            <input
-              type="textarea"
-              rows="4"
-              name="notes"
-              value={notes}
-              onChange={(e) => setNotes(e.target.value)}
-            />
-          </label>
+            <label>
+              Note:
+              <input
+                type="textarea"
+                rows="4"
+                name="notes"
+                value={notes}
+                onChange={(e) => setNotes(e.target.value)}
+              />
+            </label>
 
-          <button type="submit">Submit</button>
-        </form>
+            <button type="submit" className="btn">
+              Submit
+            </button>
+          </form>
+        </div>
       </div>
     </>
   );
