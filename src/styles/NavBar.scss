@@ -44,4 +44,15 @@
             }
         }
     }
+    .desktop-nav {
+        @media (max-width: 960px) {
+            display: none;
+        }
+    }
+    .burger-menu {
+        display: none;
+        @media (max-width: 960px) {
+            display: block;
+        }
+    }
 }
