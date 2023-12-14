@@ -97,7 +97,7 @@ function EditObservation({
           <button onClick={() => changeToggle(false)} className="exitBtn">
             <img src={exitBtn} />
           </button>
-          <h2>Edit observation</h2>
+          <h3 className="center">Edit observation</h3>
 
           <form onSubmit={handleSubmit}>
             <label>
@@ -123,11 +123,6 @@ function EditObservation({
                 ))}
               </ul>
             </label>
-            <input
-              type="file"
-              accept="image/*"
-              onChange={(e) => setPhoto(e.target.value)}
-            />
             <label>
               Date:
               <input
@@ -137,46 +132,55 @@ function EditObservation({
                 onChange={(e) => setDate(e.target.value)}
               />
             </label>
-            <label>
-              Latitude:
-              <input
-                type="number"
-                name="latitude"
-                value={latitude}
-                onChange={(e) => setLatitude(e.target.value)}
-              />
-            </label>
-            <label>
-              Longitude:
-              <input
-                type="number"
-                name="longitude"
-                value={longitude}
-                onChange={(e) => setLongitude(e.target.value)}
-              />
-            </label>
-            <select
-              onChange={(e) => {
-                setHabitat(e.target.value);
-              }}
-            >
-              <option value="forest">Forest</option>
-              <option value="grassland">Grassland</option>
-              <option value="wetland">Wetland</option>
-              <option value="coast">Coast</option>
-              <option value="urban">Urban</option>
-              <option value="mountain">Mountain</option>
-              <option value="river">River</option>
-            </select>
-            <label>
-              Vegetation:
-              <input
-                type="text"
-                name="vegetation"
-                value={vegetation}
-                onChange={(e) => setVegetation(e.target.value)}
-              />
-            </label>
+            <div className="flex-horizontal">
+              <label>
+                Latitude:
+                <input
+                  type="number"
+                  name="latitude"
+                  value={latitude}
+                  onChange={(e) => setLatitude(e.target.value)}
+                />
+              </label>
+              <label>
+                Longitude:
+                <input
+                  type="number"
+                  name="longitude"
+                  value={longitude}
+                  onChange={(e) => setLongitude(e.target.value)}
+                />
+              </label>
+            </div>
+
+            <div className="flex-horizontal">
+              <label>
+                  Habitat:
+                <select
+                  onChange={(e) => {
+                    setHabitat(e.target.value);
+                  }}
+                >
+                  <option value="forest">Forest</option>
+                  <option value="grassland">Grassland</option>
+                  <option value="wetland">Wetland</option>
+                  <option value="coast">Coast</option>
+                  <option value="urban">Urban</option>
+                  <option value="mountain">Mountain</option>
+                  <option value="river">River</option>
+                </select>
+              </label>
+              <label>
+                Vegetation:
+                <input
+                  type="text"
+                  name="vegetation"
+                  value={vegetation}
+                  onChange={(e) => setVegetation(e.target.value)}
+                />
+              </label>
+            </div>
+
             <select
               onChange={(e) => {
                 setAge(e.target.value);
@@ -185,15 +189,6 @@ function EditObservation({
               <option value="juvenil">Juvenil</option>
               <option value="adult">Adult</option>
             </select>
-            <label>
-              Sound:
-              <input
-                type="text"
-                name="sound"
-                value={sound}
-                onChange={(e) => setSound(e.target.value)}
-              />
-            </label>
 
             <label>
               Temperature:
