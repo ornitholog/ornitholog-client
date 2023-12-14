@@ -115,6 +115,11 @@ p {
   flex-direction: row;
 }
 
+.map-wrap {
+  margin-top: 5em;
+  margin-bottom: 3em;
+}
+
 .leaflet-container {
   height: 50vh;
 }
@@ -236,4 +241,8 @@ form .btn {
       cursor: pointer;
     }
   }
+}
+
+.profile-page, .BirdIndexPage {
+  padding-top: 3em;
 }

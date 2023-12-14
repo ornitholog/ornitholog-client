@@ -11,7 +11,7 @@ import "leaflet/dist/leaflet.css";
 
 function Map({ observationList }) {
   return (
-    <div>
+    <div className="map-wrap">
       <MapContainer center={[52.531677, 13.381777]} zoom={4}>
         <TileLayer
           attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'

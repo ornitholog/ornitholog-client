@@ -8,7 +8,7 @@ function BirdIndexPage({ birdList }) {
   return (
     <>
       <div className="BirdIndexPage container">
-        <h3>Bird index page</h3>
+        <h1>Birds List</h1>
         <div className="card-container bird-index-page">
           {birdList &&
             birdList.map((bird) => {
@@ -24,7 +24,7 @@ function BirdIndexPage({ birdList }) {
                       <em>{bird.sciName}</em>
                     </p>
                     <p>{bird.habitat}</p>
-                    <div class="region-wrap">
+                    <div className="region-wrap">
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         width="40"

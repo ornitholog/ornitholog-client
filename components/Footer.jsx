@@ -5,8 +5,8 @@ function Footer() {
   return (
     <footer>
       <img src={logo} alt="logo" />
-      <div>Copyright &#169; 2023 OrthinoLog</div>
-      <div>- Marco Salvoni and Maya Kilbertus -</div>
+      <div><em>Copyright &#169; 2023 OrthinoLog</em></div>
+      <div>Marco Salvoni and Maya Kilbertus</div>
     </footer>
   );
 }
