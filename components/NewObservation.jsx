@@ -252,15 +252,16 @@ function NewObservation({ birdList, fetchObservationList, changeToggle }) {
               />
             </label>
 
-              <label >
-                Upload your photo
-                <input
-                  className="image-upload"
-                  type="file"
-                  accept="image/*"
-                  onChange={(e) => setPhoto(e.target.files[0])}
-                />
-              </label>
+            <label>
+              Upload your photo
+              <input
+                className="image-upload"
+                type="file"
+                accept="image/*"
+                onChange={(e) => setPhoto(e.target.files[0])}
+                required
+              />
+            </label>
 
             <button type="submit" className="btn">
               Submit
