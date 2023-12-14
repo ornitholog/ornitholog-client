@@ -9,7 +9,7 @@ function EditObservation({
   fetchObservationList,
   changeToggle,
 }) {
-  console.log(observationDetails);
+  
   const url = import.meta.env.VITE_API_URL;
 
   const [bird, setBird] = useState(observationDetails.birdId.name);
@@ -97,7 +97,7 @@ function EditObservation({
           <button onClick={() => changeToggle(false)} className="exitBtn">
             <img src={exitBtn} />
           </button>
-          <h3 className="center">Edit observation</h3>
+          <h3 className="center">Edit observation 👀</h3>
 
           <form onSubmit={handleSubmit}>
             <label>
@@ -180,15 +180,18 @@ function EditObservation({
                 />
               </label>
             </div>
-
-            <select
-              onChange={(e) => {
-                setAge(e.target.value);
-              }}
-            >
-              <option value="juvenil">Juvenil</option>
-              <option value="adult">Adult</option>
-            </select>
+            
+            <label>
+              Age:
+              <select
+                onChange={(e) => {
+                  setAge(e.target.value);
+                }}
+              >
+                <option value="juvenil">Juvenil</option>
+                <option value="adult">Adult</option>
+              </select>
+            </label>
 
             <label>
               Temperature:
