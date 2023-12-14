@@ -3,6 +3,7 @@ import Map from "../components/Map";
 import ObservationDetails from "../components/ObservationDetails.jsx";
 import FilterObservations from "../components/FilterObservations";
 import "../src/styles/HomePage.scss";
+import { Link } from "react-router-dom";
 
 function HomePage({ observationList }) {
   const [displayedObservations, setDisplayedObservations] =
@@ -17,7 +18,7 @@ function HomePage({ observationList }) {
             Contribute to Avian Conservation: OrnithoLog – Your Platform for
             Tracking and Reporting Bird Species Observations
           </p>
-          <button className="btn btn-light">Join the community</button>
+          <Link className="btn btn-light" to="/signup">Join the community</Link>
         </div>
       </div>
       <div className="homepage-container">

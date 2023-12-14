@@ -78,6 +78,7 @@ p {
   border-radius: 2px;
   font-size: 16px;
   font-weight: 500;
+  text-decoration: none;
   &:hover {
     background-color: darken($primary, 5%);
   }
