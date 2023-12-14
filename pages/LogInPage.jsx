@@ -66,10 +66,11 @@ function LogInPage() {
             <button className="btn submit-btn" type="submit">
               Log In
             </button>
+            
+            {errorMessage && <p className="errorMessage">{errorMessage}</p>}
           </form>
         </div>
 
-        {errorMessage && <p>{errorMessage}</p>}
       </div>
     </>
   );

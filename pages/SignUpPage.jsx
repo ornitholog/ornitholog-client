@@ -72,7 +72,7 @@ function SignUpPage() {
           </form>
         </div>
 
-        {errorMessage && <p>{errorMessage}</p>}
+        {errorMessage && <p className="errorMessage">{errorMessage}</p>}
       </div>
     </>
   );
