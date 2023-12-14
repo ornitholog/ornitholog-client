@@ -35,26 +35,26 @@ h2 {
   font-size: 2.75rem;
   font-weight: 600;
   margin-bottom: 1rem;
-  line-height: 1.2
+  line-height: 1.2;
 }
 
 h3 {
   font-size: 2rem;
   font-weight: 600;
   margin-bottom: 1rem;
-  line-height: 1.2
+  line-height: 1.2;
 }
 
 h4 {
   font-size: 1.5rem;
   font-weight: 500;
-  line-height: 1.2
+  line-height: 1.2;
 }
 
 h5 {
   font-size: 1.25rem;
   font-weight: 400;
-  line-height: 1.2
+  line-height: 1.2;
 }
 
 h6 {
@@ -96,7 +96,7 @@ p {
   align-items: center;
   height: fit-content;
   svg {
-    margin-right: .5em;
+    margin-right: 0.5em;
   }
 }
 
@@ -114,7 +114,6 @@ p {
   flex-direction: row;
 }
 
-
 .leaflet-container {
   height: 50vh;
 }
@@ -127,7 +126,7 @@ form select {
 }
 
 form label {
-  margin-bottom: .5em;
+  margin-bottom: 0.5em;
   color: $white-500;
 }
 
@@ -135,7 +134,7 @@ form input,
 form select {
   margin-bottom: 1rem;
   width: 100%;
-  padding: .625rem 1rem;
+  padding: 0.625rem 1rem;
   background-color: $mixed-300;
   color: $white;
 }

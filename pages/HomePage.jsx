@@ -23,7 +23,7 @@ function HomePage({ observationList }) {
       <div className="homepage-container">
         <div className="flex-horizontal">
           <h3>Bird Observation Contributions</h3>
-          <p>
+          <p className="info-text">
             Share valuable insights into avian ecosystems by uploading bird
             observations, including geo-location, temperature, habitat, and
             vegetation data. Your contributions can help in monitoring key bird
