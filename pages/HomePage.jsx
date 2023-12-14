@@ -18,7 +18,9 @@ function HomePage({ observationList }) {
             Contribute to Avian Conservation: OrnithoLog – Your Platform for
             Tracking and Reporting Bird Species Observations
           </p>
-          <Link className="btn btn-light" to="/signup">Join the community</Link>
+          <Link className="btn btn-light" to="/signup">
+            Join the community
+          </Link>
         </div>
       </div>
       <div className="homepage-container">

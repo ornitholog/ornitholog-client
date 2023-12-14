@@ -35,7 +35,6 @@
 }
 
 .homepage-container {
-  position: relative;
   margin: 0 auto;
   width: 90vw;
   .flex-horizontal {
@@ -121,6 +120,11 @@
       img svg {
         height: 16px;
       }
+    }
+    .region-wrap {
+      display: flex;
+      align-items: center;
+      margin-top: 1rem;
     }
     .meta-info-wrap {
       display: flex;

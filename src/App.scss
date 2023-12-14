@@ -173,9 +173,10 @@ form .btn {
     label {
       margin-bottom: 0;
     }
-    input, select {
+    input,
+    select {
       width: 100%;
-      margin-top: .5em;
+      margin-top: 0.5em;
     }
   }
   &::before {
@@ -201,7 +202,7 @@ form .btn {
       align-items: center;
       margin-bottom: 1.5em;
       svg {
-        margin-right: .5em;
+        margin-right: 0.5em;
       }
     }
     .custom-file-input label {
