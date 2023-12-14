@@ -145,11 +145,11 @@ form .btn {
 }
 
 .modal {
-  position: fixed;
+  position: absolute;
   z-index: 999;
   top: 10rem;
   left: 30vw;
-  background-color: $dark; /* Replace with your desired background color */
+  background-color: $dark;
   padding: 2rem;
   backdrop-filter: none;
   border: 10px solid $dark;
@@ -161,13 +161,25 @@ form .btn {
     left: 0;
     width: 100%;
     height: 100%;
-    backdrop-filter: blur(1px); /* Adjust the blur intensity as needed */
+    backdrop-filter: blur(1px);
     z-index: -1;
   }
 
   form {
     input {
       width: 20rem;
+    }
+  }
+
+  .exitBtn {
+    background-color: $dark;
+    border: none;
+    position: absolute;
+    right: 0;
+    top: 0;
+
+    &:hover {
+      cursor: pointer;
     }
   }
 }

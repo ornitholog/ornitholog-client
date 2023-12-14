@@ -1,8 +1,9 @@
 import { useState } from "react";
 import axios from "axios";
 import service from "../services/file-upload.service";
+import exitBtn from "../src/assets/exit.svg";
 
-function NewObservation({ birdList, fetchObservationList }) {
+function NewObservation({ birdList, fetchObservationList, changeToggle }) {
   const url = import.meta.env.VITE_API_URL;
 
   const [bird, setBird] = useState("");
@@ -108,6 +109,9 @@ function NewObservation({ birdList, fetchObservationList }) {
   return (
     <>
       <div className="NewObservation container modal">
+        <button onClick={() => changeToggle(false)} className="exitBtn">
+          <img src={exitBtn} />
+        </button>
         <h2>Add your bird observation</h2>
 
         <form onSubmit={handleFileUpload}>
@@ -227,7 +231,9 @@ function NewObservation({ birdList, fetchObservationList }) {
             />
           </label>
 
-          <button type="submit">Submit</button>
+          <button type="submit" className="btn">
+            Submit
+          </button>
         </form>
       </div>
     </>
