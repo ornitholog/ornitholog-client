@@ -6,7 +6,7 @@ function Footer() {
     <footer>
       <img src={logo} alt="logo" />
       <div>
-        <em>Copyright &#169; 2023 OrthinoLog</em>
+        <em>Copyright &#169; 2023 OrnithoLog</em>
       </div>
       <div>Marco Salvoni and Maya Kilbertus</div>
     </footer>
