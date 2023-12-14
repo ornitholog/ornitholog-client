@@ -149,19 +149,36 @@ form .btn {
   position: fixed;
   z-index: 999;
   top: 3rem;
-  left: 30vw;
-  width: 60vw;
+  left: calc(50% - 300px);
+  width: 600px;
   overflow: hidden;
-  
+  @media (max-width: 640px) {
+    width: 100%;
+    padding: 1rem;
+    left: 0;
+  }
   .modal-inner-wrap {
     background-color: $dark;
     padding: 3rem;
-    z-index: 99999;
+    z-index: 999;
     position: relative;
     overflow-y: scroll;
-    max-height: 800px;
+    max-height: 90vh;
+    padding: 3em;
+    @media (max-width: 640px) {
+      padding: 1em;
+    }
+    h3 {
+      margin-bottom: 1em;
+    }
+    label {
+      margin-bottom: 0;
+    }
+    input, select {
+      width: 100%;
+      margin-top: .5em;
+    }
   }
-
   &::before {
     content: "";
     position: fixed;
@@ -178,14 +195,42 @@ form .btn {
     input {
       width: 20rem;
     }
+    .custom-file-input {
+      position: relative;
+      margin-bottom: 1em;
+      display: flex;
+      align-items: center;
+      margin-bottom: 1.5em;
+      svg {
+        margin-right: .5em;
+      }
+    }
+    .custom-file-input label {
+      color: $dark;
+      cursor: pointer;
+      margin-bottom: 0;
+    }
+    .flex-horizontal {
+      gap: 8px;
+      > * {
+        flex-basis: 50%;
+      }
+      @media (max-width: 640px) {
+        flex-wrap: wrap;
+        > * {
+          flex-basis: 100%;
+        }
+      }
+    }
   }
 
   .exitBtn {
     background-color: transparent;
     border: none;
     position: absolute;
-    right: 0;
-    top: 0;
+    right: 1.5em;
+    top: 1.5em;
+    width: 2rem;
 
     &:hover {
       cursor: pointer;
