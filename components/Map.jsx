@@ -20,12 +20,16 @@ function Map({ observationList }) {
 
         {observationList &&
           observationList.map((observation) => {
+            const coordinates = [
+              observation.location.coordinates[1],
+              observation.location.coordinates[0],
+            ];
             return (
               // <GeoJSON data={observation.location} key={observation._id}>
               //   <Tooltip>{observation.title}</Tooltip>
               // </GeoJSON>
               <CircleMarker
-                center={observation.location.coordinates}
+                center={coordinates}
                 key={observation._id}
                 radius={5}
               >
