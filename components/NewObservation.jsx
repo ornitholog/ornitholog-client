@@ -114,7 +114,7 @@ function NewObservation({ birdList, fetchObservationList, changeToggle }) {
           <button onClick={() => changeToggle(false)} className="exitBtn">
             <img src={exitBtn} />
           </button>
-          <h3 className="center">Add your observation</h3>
+          <h3 className="center">Add your observation 👀</h3>
 
           <form onSubmit={handleFileUpload}>
             <label>
