@@ -1,8 +1,9 @@
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../context/auth.context";
 import { Link } from "react-router-dom";
+import ObservationDetails from "../components/ObservationDetails";
 
-function ProfilePage({ observationList }){
+function ProfilePage({ observationList }) {
     const { isLoggedIn, user, logOutUser } = useContext(AuthContext)
     const [userObservations, setUserObservations] = useState([])
 
@@ -18,23 +19,19 @@ function ProfilePage({ observationList }){
     }, [observationList])
 
 
-    return(
+    return (
         <>
-            <div className="container profile">
+            <div className="container profile-page">
                 <h3>🦉 Welcome {user.name}</h3>
                 <h1>Your obsevations</h1>
                 <div className="card-container">
-                    { userObservations && (
+                    {userObservations && (
                         userObservations.map((elm, id) => {
                             return (
-                                <div className="observation-card" key={id}>
-                                    <img src={elm.photo} alt="" />
-                                    <h4>{elm.title}</h4>
-                                    <h6>{elm.birdId.sciName}</h6>
-                                    <div>{elm.date}</div>
-                                    <div><span>Habitat:</span>{elm.habitat}</div>
-                                    <Link to={`/observations/${elm._id}`}>Detail</Link>
-                                </div>
+                                <ObservationDetails
+                                    observation={elm}
+                                    key={id}
+                                />
                             )
                         })
                     )}
