@@ -67,6 +67,7 @@ function EditObservation({
       .then((response) => {
         getObservation();
         fetchObservationList();
+        setToggle(false);
       })
       .catch((error) => console.log(error));
   };
@@ -155,7 +156,7 @@ function EditObservation({
 
             <div className="flex-horizontal">
               <label>
-                  Habitat:
+                Habitat:
                 <select
                   onChange={(e) => {
                     setHabitat(e.target.value);
