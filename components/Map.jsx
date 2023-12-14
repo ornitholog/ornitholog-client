@@ -4,6 +4,8 @@ import {
   GeoJSON,
   Tooltip,
   Marker,
+  Circle,
+  CircleMarker,
 } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
 
@@ -22,10 +24,13 @@ function Map({ observationList }) {
               // <GeoJSON data={observation.location} key={observation._id}>
               //   <Tooltip>{observation.title}</Tooltip>
               // </GeoJSON>
-              <Marker
-                position={observation.location.coordinates}
+              <CircleMarker
+                center={observation.location.coordinates}
                 key={observation._id}
-              ></Marker>
+                radius={5}
+              >
+                <Tooltip>{observation.title}</Tooltip>
+              </CircleMarker>
             );
           })}
       </MapContainer>
