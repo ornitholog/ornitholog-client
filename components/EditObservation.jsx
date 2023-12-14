@@ -64,11 +64,9 @@ function EditObservation({
       .put(`${url}/api/observations/${observationDetails._id}`, requestBody, {
         headers: { Authorization: `Bearer ${storedToken}` },
       })
-      .then((response) => {
-        getObservation();
-        fetchObservationList();
-        setToggle(false);
-      })
+      .then(response => {getObservation()})
+      .then(response => {fetchObservationList()})
+      .then(response => {changeToggle(false)})
       .catch((error) => console.log(error));
   };
   const birdListArray = birdList.map((bird) => {
