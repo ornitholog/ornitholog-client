@@ -145,14 +145,27 @@ form .btn {
 }
 
 .modal {
-  position: absolute;
+  position: fixed;
   z-index: 999;
-  top: 10rem;
+  top: 3rem;
   left: 30vw;
-  background-color: $dark;
-  padding: 2rem;
-  backdrop-filter: none;
-  border: 10px solid $dark;
+  width: 50%;
+  overflow: hidden;
+  .modal-inner-wrap {
+    background-color: $dark;
+    padding: 3rem;
+    z-index: 999;
+    position: relative;
+    overflow-y: scroll;
+    max-height: 90vh;
+    padding: 3em 30%;
+    h3 {
+      margin-bottom: 1em;
+    }
+    label {
+      margin-bottom: 0.5em;
+    }
+  }
 
   &::before {
     content: "";
@@ -161,8 +174,9 @@ form .btn {
     left: 0;
     width: 100%;
     height: 100%;
-    backdrop-filter: blur(1px);
+    backdrop-filter: blur(6px);
     z-index: -1;
+    background-color: rgba(0, 0, 0, 0.2);
   }
 
   form {
@@ -172,11 +186,11 @@ form .btn {
   }
 
   .exitBtn {
-    background-color: $dark;
+    background-color: transparent;
     border: none;
     position: absolute;
-    right: 0;
-    top: 0;
+    right: 1em;
+    top: 2em;
 
     &:hover {
       cursor: pointer;
