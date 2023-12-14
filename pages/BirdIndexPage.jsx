@@ -33,9 +33,9 @@ function BirdIndexPage({ birdList }) {
                         <g transform="translate(0 0)">
                           <g
                             className="nc-icon-wrapper"
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                            stroke-width="1.5"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth="1.5"
                             fill="none"
                             stroke="#f2f2f2"
                           >
