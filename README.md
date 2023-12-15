@@ -1,8 +1,20 @@
-# React + Vite
+# OrnithoLog - React APP (Frontend)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Description
 
-Currently, two official plugins are available:
+OrnithoLog is a single-page application designed for users to upload bird observations, providing information such as photos, species identification, and the location of the observed bird. Users can effortlessly display and filter these observations on an interactive map. Additionally, users have the option to view the comprehensive list of birds stored in the database.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+
+## Link To The Backend
+> https://github.com/ornitholog/ornitholog-server
+
+## How To Use It Locally
+1. to clone the project, run `git clone https://github.com/ornitholog/ornitholog-server.git`
+2. install all the dependencies `npm install`
+3. create an `.env` file in the root to add the following environment variable `VITE_API_URL=http://localhost:5005`
+4. to run the application, run `npm run dev`
+5. open the application in the browser on the URL `http://localhost:5005`
+
+## Project Demo
+> https://ornitholog.netlify.app/
+
