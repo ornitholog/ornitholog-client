@@ -12,6 +12,9 @@
         padding: 4em 3em; 
         img {
             max-width: 320px;
+            @media (max-width: 640px) {
+                max-width: 224px;
+            }
         }
         ul {
             margin-top: 3em;
