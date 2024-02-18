@@ -1,12 +1,4 @@
-import {
-  MapContainer,
-  TileLayer,
-  GeoJSON,
-  Tooltip,
-  Marker,
-  Circle,
-  CircleMarker,
-} from "react-leaflet";
+import { MapContainer, TileLayer, GeoJSON, Tooltip, Marker, Circle, CircleMarker, } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
 
 function Map({ observationList }) {

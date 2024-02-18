@@ -6,8 +6,7 @@ import "../src/styles/HomePage.scss";
 import { Link } from "react-router-dom";
 
 function HomePage({ observationList }) {
-  const [displayedObservations, setDisplayedObservations] =
-    useState(observationList);
+  const [displayedObservations, setDisplayedObservations] = useState(observationList);
 
   return (
     <div className="HomePage">

@@ -24,9 +24,6 @@ function NewObservation({ birdList, fetchObservationList, changeToggle }) {
     e.preventDefault();
     try {
       const uploadData = new FormData();
-
-      // imageUrl => this name has to be the same as in the model since we pass
-      // req.body to .create() method when creating a new movie in '/api/movies' POST route
       uploadData.append("photo", photo);
       const response = await service.uploadImage(uploadData);
 

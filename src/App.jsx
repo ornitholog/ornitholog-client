@@ -9,7 +9,6 @@ import HomePage from "../pages/HomePage";
 import SignUpPage from "../pages/SignUpPage";
 import LogInPage from "../pages/LogInPage";
 import ObservationDetailPage from "../pages/ObservationDetailPage";
-
 import ProfilePage from "../pages/ProfilePage";
 import BirdDetailPage from "../pages/BirdDetailsPage";
 import BirdIndexPage from "../pages/BirdIndexPage";
@@ -18,7 +17,7 @@ import BirdIndexPage from "../pages/BirdIndexPage";
 import NavBar from "../components/NavBar";
 import Footer from "../components/Footer";
 import IsPrivate from "../components/IsPrivate/IsPrivate";
-import IsAnon from "../components/IsAnon/IsAnon";
+
 
 function App() {
   const url = import.meta.env.VITE_API_URL;
@@ -89,6 +88,7 @@ function App() {
           element={<BirdIndexPage birdList={birds} />}
         ></Route>
       </Routes>
+      
       <Footer />
     </>
   );

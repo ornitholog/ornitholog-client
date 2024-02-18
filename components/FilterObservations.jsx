@@ -1,12 +1,12 @@
 import { useEffect, useState } from "react";
 
 function FilterObservations({ observationList, setDisplayedObservations }) {
-  // filter bird, habitat...
+  
+  // filter species & habitat
   const [selectedBird, setSelectedBird] = useState('all');
   const [selectedHabitat, setSelectedHabitat] = useState('all');
   const [uniqueBirdNames, setUniqueBirdNames] = useState([]);
   const [uniqueHabitats, setUniqueHabitats] = useState([]);
-  // const [displayedObservations, setDisplayedObservations] = useState(observationList);
 
   useEffect(() => {
     if (observationList) {
@@ -28,7 +28,6 @@ function FilterObservations({ observationList, setDisplayedObservations }) {
       });
 
       setDisplayedObservations(filteredObservations);
-      // setObservations(filteredObservations);
     }
   }, [selectedBird, selectedHabitat, observationList]);
 
